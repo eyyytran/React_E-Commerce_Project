@@ -1,3 +1,19 @@
-div {
-    background: blue;
+nav {
+    background-color: lightblue;
+    height: 65px;
+    width: 100vw;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_nav_items-container {
+    display: flex;
+}
+
+.main_nav_item {
+    margin-left: 10px;
+    margin-right: 10px;
 }

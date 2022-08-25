@@ -2,13 +2,41 @@
 
 /* font-family: 'Source Sans Pro', sans-serif;
 font-family: 'Source Serif Pro', serif; */
+:root {
+    --font: black;
+}
 
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     font-family: 'Source Sans Pro', sans-serif;
+    color: var(--font);
 }
 
 * {
     box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+li {
+    display: list-item;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font);
+}
+
+.homepage {
+    height: 100%;
+    width: 100%;
 }
