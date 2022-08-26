@@ -5,9 +5,9 @@ import Home from './layouts/Home'
 import Navbar from './layouts/Navbar'
 import Collections from './layouts/Collections'
 import Login from './layouts/Login'
-import './styles/App.css'
 import Concierge from './layouts/Concierge'
 import Signup from './layouts/Signup'
+import './styles/App.css'
 
 function App() {
     return (
