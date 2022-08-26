@@ -1,6 +1,6 @@
-import Logo from '../components/navBarComponents/Logo'
-import MainNav from '../components/navBarComponents/MainNav'
-import UserNav from '../components/navBarComponents/UserNav'
+import Logo from '../components/nav/Logo'
+import MainNav from '../components/nav/MainNav'
+import UserNav from '../components/nav/UserNav'
 import '../styles/Navbar.css'
 
 const Navbar = () => {
