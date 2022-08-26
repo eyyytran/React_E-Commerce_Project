@@ -16,6 +16,7 @@ body {
     grid-template-rows: auto 1fr auto;
     font-family: 'Source Sans Pro', sans-serif;
     color: var(--font);
+    position: relative;
 }
 
 * {
@@ -36,7 +37,24 @@ a {
     color: var(--font);
 }
 
+.is-active {
+    transform: translate(0);
+}
+
 .homepage {
     height: 100%;
     width: 100%;
+}
+
+.cart {
+    z-index: 9000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    max-width: 320px;
+    transform: translate(100%);
+    transition: transform 0.2s;
+    border: 1px solid red;
 }

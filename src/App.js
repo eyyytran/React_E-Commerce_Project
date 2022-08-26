@@ -1,7 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Cart from './layouts/Cart'
 import Footer from './layouts/Footer'
 import Home from './layouts/Home'
 import Navbar from './layouts/Navbar'
+import Collections from './layouts/Collections'
+import Login from './layouts/Login'
 import './styles/App.css'
 
 function App() {
@@ -10,6 +13,8 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='collections' element={<Collections />} />
+                <Route path='login' element={<Login />} />
                 <Route
                     path='*'
                     element={
@@ -19,6 +24,7 @@ function App() {
                     }
                 />
             </Routes>
+            <Cart />
             <Footer />
         </BrowserRouter>
     )
