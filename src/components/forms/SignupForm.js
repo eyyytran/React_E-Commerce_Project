@@ -7,20 +7,63 @@ const SignupForm = () => {
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
 
-    const validatePassword = () => {
-        let isValid = true
-        if (password !== '' && confirm !== '') {
-            if (password !== confirm) {
-                isValid = false
-                console.error('The passwords do not match')
-            }
+    const isRequired = value => (value === '' ? false : true)
+
+    const isEmail = () => {
+        const re = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
+        console.log(re.test(email))
+        return re.test(email)
+    }
+
+    const isSecure = () => {
+        const re = new RegExp(
+            '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,50}$'
+        )
+
+        return re.test(password)
+    }
+
+    const validateEmail = () => {
+        let valid = false
+        if (!isRequired(email)) {
+            console.error('Email is required')
+        } else if (!isEmail(email)) {
+            console.error('Not a valid email')
+        } else {
+            console.log('email is valid')
+            valid = true
         }
-        return isValid
+        return valid
+    }
+
+    const validatePassword = () => {
+        let valid = false
+        if (!isRequired(password)) {
+            console.error('Password is required')
+        } else if (!isSecure(password)) {
+            console.error('Invalid Password')
+        } else if (password !== confirm) {
+            console.error('Passwords do not match')
+        } else {
+            console.log('This is a good password')
+            valid = true
+        }
+        return valid
+    }
+
+    const validateForm = () => {
+        let validPassword = validatePassword()
+        let validEmail = validateEmail()
+        let valid = false
+        if (validPassword && validEmail) {
+            return (valid = true)
+        }
+        return valid
     }
 
     const register = e => {
         e.preventDefault()
-        if (validatePassword()) {
+        if (validateForm()) {
             createUserWithEmailAndPassword(auth, email, password)
                 .then(res => {
                     console.log(res.user)
