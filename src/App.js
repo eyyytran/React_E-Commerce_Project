@@ -6,6 +6,7 @@ import Navbar from './layouts/Navbar'
 import Collections from './layouts/Collections'
 import Login from './layouts/Login'
 import './styles/App.css'
+import Concierge from './layouts/Concierge'
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='collections' element={<Collections />} />
                 <Route path='login' element={<Login />} />
+                <Route path='concierge' element={<Concierge />} />
                 <Route
                     path='*'
                     element={
