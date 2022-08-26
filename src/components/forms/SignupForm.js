@@ -1,19 +1,39 @@
 import { useState } from 'react'
-import { useAuthCreateUserWithEmailAndPassword } from '@react-query-firebase/auth'
 import { auth } from '../../firebaseConfig'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 const SignupForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
-    const mutation = useAuthCreateUserWithEmailAndPassword(auth)
 
-    function handleClick() {
-        mutation.mutate({ email, password })
+    const validatePassword = () => {
+        let isValid = true
+        if (password !== '' && confirm !== '') {
+            if (password !== confirm) {
+                isValid = false
+                console.error('The passwords do not match')
+            }
+        }
+        return isValid
+    }
+
+    const register = e => {
+        e.preventDefault()
+        if (validatePassword()) {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(res => {
+                    console.log(res.user)
+                })
+                .catch(err => console.error(err))
+        }
+        setEmail('')
+        setPassword('')
+        setConfirm('')
     }
 
     return (
-        <form>
+        <form onSubmit={register}>
             <input
                 type='text'
                 name='email'
@@ -32,7 +52,7 @@ const SignupForm = () => {
                 value={confirm}
                 onChange={e => setConfirm(e.target.value)}
             />
-            <button onClick={handleClick}>Register</button>
+            <button type='submit'>Register</button>
         </form>
     )
 }
