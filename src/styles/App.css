@@ -41,6 +41,10 @@ a {
     transform: translate(0);
 }
 
+.hidden {
+    display: none;
+}
+
 .homepage {
     height: 100%;
     width: 100%;

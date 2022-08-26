@@ -6,6 +6,9 @@ const SignupForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
+    const [emailError, setEmailError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
+    const [confirmError, setConfirmError] = useState('')
 
     const isRequired = value => (value === '' ? false : true)
 
@@ -26,11 +29,11 @@ const SignupForm = () => {
     const validateEmail = () => {
         let valid = false
         if (!isRequired(email)) {
-            console.error('Email is required')
+            setEmailError('Email is required.')
         } else if (!isEmail(email)) {
-            console.error('Not a valid email')
+            setEmailError('Not a valid email')
         } else {
-            console.log('email is valid')
+            setEmailError('')
             valid = true
         }
         return valid
@@ -39,13 +42,16 @@ const SignupForm = () => {
     const validatePassword = () => {
         let valid = false
         if (!isRequired(password)) {
-            console.error('Password is required')
+            setPasswordError('Password is required')
         } else if (!isSecure(password)) {
-            console.error('Invalid Password')
+            setPasswordError(
+                'Passwords must be between 8-50 characters, include 1 uppercase, 1 number, and 1 special character'
+            )
         } else if (password !== confirm) {
-            console.error('Passwords do not match')
+            setConfirmError('Passwords do not match')
         } else {
-            console.log('This is a good password')
+            setConfirmError('')
+            setPasswordError('')
             valid = true
         }
         return valid
@@ -76,25 +82,37 @@ const SignupForm = () => {
     }
 
     return (
-        <form onSubmit={register}>
+        <form className='signup' onSubmit={register}>
             <input
-                type='text'
+                type='email'
                 name='email'
+                placeholder='Email'
                 value={email}
                 onChange={e => setEmail(e.target.value)}
             />
+            <small className={emailError === '' ? 'hidden' : 'error'}>
+                {emailError}
+            </small>
             <input
-                type='text'
+                type='password'
                 name='password'
+                placeholder='Create a password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
             />
+            <small className={passwordError === '' ? 'hidden' : 'error'}>
+                {passwordError}
+            </small>
             <input
-                type='text'
+                type='password'
                 name='confirm-password'
+                placeholder='Confirm password'
                 value={confirm}
                 onChange={e => setConfirm(e.target.value)}
             />
+            <small className={confirmError === '' ? 'hidden' : 'error'}>
+                {confirmError}
+            </small>
             <button type='submit'>Register</button>
         </form>
     )
