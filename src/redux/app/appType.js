@@ -1,0 +1,5 @@
+const IS_LOGGED_IN = 'IS_LOGGED_IN'
+
+const IS_ADMIN = 'IS_ADMIN'
+
+export { IS_LOGGED_IN, IS_ADMIN }
