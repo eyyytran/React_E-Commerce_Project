@@ -17,7 +17,7 @@ const UserNav = () => {
             <a href='/account'>
                 <PermIdentityIcon />
             </a>
-            <a href='*'>
+            <a href='/admin'>
                 <AdminPanelSettingsOutlinedIcon />
             </a>
             <a href='*'>
