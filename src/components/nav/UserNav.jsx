@@ -8,7 +8,7 @@ const UserNav = () => {
             <a href='*'>
                 <SearchIcon />
             </a>
-            <a href='*'>
+            <a href='/account'>
                 <PermIdentityIcon />
             </a>
             <a href='*'>

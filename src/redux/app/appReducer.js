@@ -1,16 +1,18 @@
-import { IS_LOGGED_IN, IS_ADMIN } from './appType'
+import { SIGN_OUT, SET_ADMIN, SET_USER } from './appType'
 
 const initialState = {
-    isLoggedIn: false,
-    isAdmin: false,
+    user: null,
+    isAdmin: null,
 }
 
-const appReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'IS_LOGGED_IN':
-            return { ...state }
-        case 'IS_ADMIN':
-            return { ...state }
+const appReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case SIGN_OUT:
+            return { ...state, user: null, isAdmin: null }
+        case SET_ADMIN:
+            return { ...state, isAdmin: payload }
+        case SET_USER:
+            return { ...state, user: payload }
         default:
             return state
     }

@@ -5,4 +5,4 @@ export {
     removeFromCart,
 } from './cart/cartAction'
 
-export { isLoggedIn, isAdmin } from './app/appAction'
+export { SignOut, SetAdmin, SetUser } from './app/appAction'

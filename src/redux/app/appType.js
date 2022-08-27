@@ -1,5 +1,7 @@
-const IS_LOGGED_IN = 'IS_LOGGED_IN'
+export const SET_USER = 'SET_USER'
 
-const IS_ADMIN = 'IS_ADMIN'
+export const SIGN_OUT = 'SIGN_OUT'
 
-export { IS_LOGGED_IN, IS_ADMIN }
+export const LOGIN = 'LOGIN'
+
+export const SET_ADMIN = 'SET_ADMIN'

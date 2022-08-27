@@ -1,6 +1,4 @@
-export const rootReducer = (state, action) => {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
+import { combineReducers } from 'redux'
+import { appReducer } from './app/appReducer'
+
+export const rootReducer = combineReducers({ app: appReducer })
