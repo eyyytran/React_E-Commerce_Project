@@ -1,4 +1,11 @@
-import { LOGIN, SET_USER, SET_ADMIN, SIGN_OUT } from './appType'
+import { SET_IS_ADMIN, SET_USER } from './appType'
+
+const SetIsAdmin = isAdmin => {
+    return {
+        type: SET_IS_ADMIN,
+        payload: isAdmin,
+    }
+}
 
 const SetUser = user => {
     return {
@@ -7,17 +14,4 @@ const SetUser = user => {
     }
 }
 
-const SetAdmin = isAdmin => {
-    return {
-        type: SET_ADMIN,
-        payload: isAdmin,
-    }
-}
-
-const SignOut = () => {
-    return {
-        type: SIGN_OUT,
-    }
-}
-
-export { SignOut, SetAdmin, SetUser }
+export { SetIsAdmin, SetUser }

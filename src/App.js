@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import PrivateRoutes from './PrivateRoutes'
+import PrivateRoutes from './components/routeTypes/PrivateRoutes'
+import AdminRoutes from './components/routeTypes/AdminRoutes'
 import Cart from './layouts/Cart'
 import Footer from './layouts/Footer'
 import Home from './layouts/Home'
@@ -23,8 +24,10 @@ function App() {
                 <Route path='signup' element={<Signup />} />
                 <Route path='concierge' element={<Concierge />} />
                 <Route element={<PrivateRoutes />}>
-                    <Route path='/account' element={<Account />} />
-                    <Route path='/admin' element={<AdminSettings />} />
+                    <Route path='account' element={<Account />} />
+                </Route>
+                <Route element={<AdminRoutes />}>
+                    <Route path='admin' element={<AdminSettings />} />
                 </Route>
                 <Route
                     path='*'

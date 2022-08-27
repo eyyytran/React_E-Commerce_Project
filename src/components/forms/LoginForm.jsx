@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { SetUser, SetAdmin, SignOut } from '../../redux'
+import { useDispatch } from 'react-redux'
+import { SetIsAdmin } from '../../redux'
 import { auth } from '../../firebaseConfig'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { collection, query, where, getDocs } from 'firebase/firestore'
@@ -35,10 +35,8 @@ const LoginForm = () => {
             ])
             const user = results[0].user
             const isAdmin = results[1]
-            console.log({ user, isAdmin })
             if (user) {
-                dispatch(SetUser(user))
-                dispatch(SetAdmin(isAdmin))
+                dispatch(SetIsAdmin(isAdmin))
                 navigate('/')
             }
         } catch (error) {
@@ -47,27 +45,22 @@ const LoginForm = () => {
     }
 
     return (
-        <>
-            <form onSubmit={login}>
-                <input
-                    type='text'
-                    name='email'
-                    placeholder='Email'
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <input
-                    type='text'
-                    name='password'
-                    placeholder='Password'
-                    onChange={e => setPassword(e.target.value)}
-                />
-                <small className={error === '' ? 'hidden' : 'error'}>
-                    {error}
-                </small>
-                <button>Login</button>
-            </form>
-            <button onClick={() => dispatch(SignOut())}>Logout</button>
-        </>
+        <form onSubmit={login}>
+            <input
+                type='text'
+                name='email'
+                placeholder='Email'
+                onChange={e => setEmail(e.target.value)}
+            />
+            <input
+                type='text'
+                name='password'
+                placeholder='Password'
+                onChange={e => setPassword(e.target.value)}
+            />
+            <small className={error === '' ? 'hidden' : 'error'}>{error}</small>
+            <button>Login</button>
+        </form>
     )
 }
 

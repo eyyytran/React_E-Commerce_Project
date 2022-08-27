@@ -1,3 +1,5 @@
+export { store, dispatch } from './store'
+
 export {
     addToCart,
     sendCart,
@@ -5,4 +7,4 @@ export {
     removeFromCart,
 } from './cart/cartAction'
 
-export { SignOut, SetAdmin, SetUser } from './app/appAction'
+export { SetIsAdmin, SetUser } from './app/appAction'
