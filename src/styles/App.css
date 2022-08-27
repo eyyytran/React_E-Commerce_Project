@@ -45,6 +45,12 @@ a {
     display: none;
 }
 
+.logo a {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bold;
+}
+
 .homepage {
     height: 100%;
     width: 100%;
