@@ -18,3 +18,13 @@ nav {
 .main_nav_item {
     margin-right: 40px;
 }
+
+.global_user_nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.global_user_nav a {
+    margin-right: 10px;
+}

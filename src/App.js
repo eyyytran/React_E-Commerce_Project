@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import PrivateRoutes from './PrivateRoutes'
 import Cart from './layouts/Cart'
 import Footer from './layouts/Footer'
 import Home from './layouts/Home'
@@ -7,6 +8,8 @@ import Collections from './layouts/Collections'
 import Login from './layouts/Login'
 import Concierge from './layouts/Concierge'
 import Signup from './layouts/Signup'
+import Account from './layouts/Account'
+import AdminSettings from './layouts/AdminSettings'
 import './styles/App.css'
 
 function App() {
@@ -19,6 +22,10 @@ function App() {
                 <Route path='login' element={<Login />} />
                 <Route path='signup' element={<Signup />} />
                 <Route path='concierge' element={<Concierge />} />
+                <Route element={<PrivateRoutes />}>
+                    <Route path='/account' element={<Account />} />
+                    <Route path='/admin' element={<AdminSettings />} />
+                </Route>
                 <Route
                     path='*'
                     element={
