@@ -16,6 +16,11 @@ const MainNav = () => {
                     SKIN CONCIERGE
                 </a>
             </li>
+            <li className='main_nav_item'>
+                <a className='main_nav_link' href='*'>
+                    OUR STORY
+                </a>
+            </li>
         </div>
     )
 }

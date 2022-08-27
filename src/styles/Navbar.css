@@ -5,15 +5,16 @@ nav {
     padding-left: 3rem;
     padding-right: 3rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .main_nav_items-container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .main_nav_item {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 40px;
 }
