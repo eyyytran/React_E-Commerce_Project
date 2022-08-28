@@ -1,17 +1,8 @@
-import { collection, getDocs } from 'firebase/firestore'
 import { useQueryClient, useQuery } from 'react-query'
-import { db } from '../firebaseConfig'
+import { fetchInventory } from './utils/dbRequests'
+import AdminInventoryItem from './AdminInventoryItem'
 
 const AdminInventory = () => {
-    const fetchInventory = async () => {
-        const products = []
-        const docs = await getDocs(collection(db, 'products'))
-        docs.forEach(doc => {
-            products.push(doc.data())
-        })
-        return products
-    }
-
     const queryClient = useQueryClient()
 
     const { data, error, isError, isLoading } = useQuery(['products'], () =>
@@ -28,7 +19,9 @@ const AdminInventory = () => {
     return (
         <div className='admin_inventory-container'>
             {data?.map(product => {
-                return <div>{product.name}</div>
+                return (
+                    <AdminInventoryItem product={product} key={product.name} />
+                )
             })}
         </div>
     )

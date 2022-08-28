@@ -34,6 +34,3 @@ onAuthStateChanged(auth, user => {
         dispatch(SetUser(user))
     }
 })
-
-// TODO: remove this
-window.auth = auth

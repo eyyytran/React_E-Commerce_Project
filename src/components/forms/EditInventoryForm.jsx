@@ -1,26 +1,26 @@
 import { productTypes } from '../utils/productTypes'
 import { useState } from 'react'
-import { collection, addDoc } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
 
-const AddInventoryForm = () => {
-    const [name, setName] = useState('')
-    const [type, setType] = useState(null)
-    const [subtitle, setSubtitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [actives, setActives] = useState('')
-    const [ingredients, setIngredients] = useState('')
-    const [usage, setUsage] = useState('')
-    const [imageURL1, setImageURL1] = useState('')
-    const [imageURL2, setImageURL2] = useState('')
-    const [imageURL3, setImageURL3] = useState('')
-    const [qty, setQty] = useState(0)
+const EditInventoryForm = ({ product, key }) => {
+    const [name, setName] = useState(product?.name || '')
+    const [type, setType] = useState(product?.type || null)
+    const [subtitle, setSubtitle] = useState(product?.subtitle || '')
+    const [description, setDescription] = useState(product?.description || '')
+    const [actives, setActives] = useState(product?.actives || '')
+    const [ingredients, setIngredients] = useState(product?.ingredients || '')
+    const [usage, setUsage] = useState(product?.usage || '')
+    const [imageURL1, setImageURL1] = useState(product?.imageURL1 || '')
+    const [imageURL2, setImageURL2] = useState(product?.imageURL2 || '')
+    const [imageURL3, setImageURL3] = useState(product?.imageURL3 || '')
+    const [qty, setQty] = useState(product?.qty || 0)
 
     const handleClick = async e => {
         try {
             e.preventDefault()
 
-            await addDoc(collection(db, 'products'), {
+            await setDoc(doc(db, 'products'), {
                 name,
                 type,
                 subtitle,
@@ -33,27 +33,15 @@ const AddInventoryForm = () => {
                 imageURL3,
                 qty,
             })
-            setName('')
-            setType('')
-            setSubtitle('')
-            setDescription('')
-            setActives('')
-            setIngredients('')
-            setUsage('')
-            setImageURL1('')
-            setImageURL2('')
-            setImageURL3('')
-            setQty(0)
         } catch (error) {
             console.error(error)
         }
     }
-
     return (
-        <form>
+        <form className='edit-inventory-form'>
             <input
                 type='text'
-                placeholder='Product Name'
+                placeholder={product?.name}
                 value={name}
                 onChange={e => setName(e.target.value)}
             />
@@ -67,7 +55,7 @@ const AddInventoryForm = () => {
             </select>
             <input
                 type='text'
-                placeholder='Subtitle'
+                placeholder={product?.subtitle}
                 value={subtitle}
                 onChange={e => {
                     setSubtitle(e.target.value)
@@ -75,7 +63,7 @@ const AddInventoryForm = () => {
             />
             <input
                 type='text'
-                placeholder='Description'
+                placeholder={product?.description}
                 value={description}
                 onChange={e => {
                     setDescription(e.target.value)
@@ -83,7 +71,7 @@ const AddInventoryForm = () => {
             />
             <input
                 type='text'
-                placeholder='Featured Ingredients'
+                placeholder={product?.actives}
                 value={actives}
                 onChange={e => {
                     setActives(e.target.value)
@@ -91,7 +79,7 @@ const AddInventoryForm = () => {
             />
             <input
                 type='text'
-                placeholder='All Ingredients'
+                placeholder={product?.ingredients}
                 value={ingredients}
                 onChange={e => {
                     setIngredients(e.target.value)
@@ -99,7 +87,7 @@ const AddInventoryForm = () => {
             />
             <input
                 type='text'
-                placeholder='Directions'
+                placeholder={product?.usage}
                 value={usage}
                 onChange={e => {
                     setUsage(e.target.value)
@@ -109,21 +97,21 @@ const AddInventoryForm = () => {
             <input
                 type='text'
                 name='imageUrl'
-                placeholder='Primary Image'
+                placeholder={product?.imageURL1}
                 value={imageURL1}
                 onChange={e => setImageURL1(e.target.value)}
             />
             <input
                 type='text'
                 name='imageUrl'
-                placeholder='Secondary Image'
+                placeholder={product?.imageURL2}
                 value={imageURL2}
                 onChange={e => setImageURL2(e.target.value)}
             />
             <input
                 type='text'
                 name='imageUrl'
-                placeholder='Tertiary Image'
+                placeholder={product?.imageURL3}
                 value={imageURL3}
                 onChange={e => setImageURL3(e.target.value)}
             />
@@ -131,13 +119,13 @@ const AddInventoryForm = () => {
             <input
                 type='number'
                 name='quanity'
-                placeholder='QTY'
+                placeholder={product?.qty}
                 value={qty}
                 onChange={e => setQty(e.target.value)}
             />
-            <button onClick={handleClick}>Add Product</button>
+            <button onClick={handleClick}>Edit</button>
         </form>
     )
 }
 
-export default AddInventoryForm
+export default EditInventoryForm
