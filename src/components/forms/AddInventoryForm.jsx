@@ -2,6 +2,7 @@ import { productTypes } from '../utils/productTypes'
 import { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
+import { useQueryClient, useMutation } from 'react-query'
 
 const AddInventoryForm = () => {
     const [name, setName] = useState('')
@@ -16,10 +17,10 @@ const AddInventoryForm = () => {
     const [imageURL3, setImageURL3] = useState('')
     const [qty, setQty] = useState(0)
 
-    const handleClick = async e => {
-        try {
-            e.preventDefault()
+    const queryClient = useQueryClient()
 
+    const addProduct = async () => {
+        try {
             await addDoc(collection(db, 'products'), {
                 name,
                 type,
@@ -47,6 +48,17 @@ const AddInventoryForm = () => {
         } catch (error) {
             console.error(error)
         }
+    }
+
+    const mutation = useMutation(addProduct, {
+        onSuccess: () => {
+            queryClient.invalidateQueries(['products'])
+        },
+    })
+
+    const handleClick = e => {
+        e.preventDefault()
+        mutation.mutate()
     }
 
     return (
