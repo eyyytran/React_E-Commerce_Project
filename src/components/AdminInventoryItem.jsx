@@ -1,9 +1,9 @@
 import { productTypes } from '../utils'
 import { useState } from 'react'
-import { collection, addDoc } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
 
-const AddInventoryForm = () => {
+const AdminInventoryItem = () => {
     const [name, setName] = useState('')
     const [type, setType] = useState(null)
     const [subtitle, setSubtitle] = useState('')
@@ -20,7 +20,7 @@ const AddInventoryForm = () => {
         try {
             e.preventDefault()
 
-            await addDoc(collection(db, 'products'), {
+            await setDoc(doc(db, 'products'), {
                 name,
                 type,
                 subtitle,
@@ -33,17 +33,6 @@ const AddInventoryForm = () => {
                 imageURL3,
                 qty,
             })
-            setName('')
-            setType('')
-            setSubtitle('')
-            setDescription('')
-            setActives('')
-            setIngredients('')
-            setUsage('')
-            setImageURL1('')
-            setImageURL2('')
-            setImageURL3('')
-            setQty(0)
         } catch (error) {
             console.error(error)
         }
@@ -137,7 +126,6 @@ const AddInventoryForm = () => {
             />
             <button onClick={handleClick}>Add Product</button>
         </form>
-    )
 }
 
-export default AddInventoryForm
+export default AdminInventoryItem

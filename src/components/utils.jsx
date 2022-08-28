@@ -5,11 +5,3 @@ export const productTypes = [
     'Cleanser',
     'Suncare',
 ]
-
-export const productDescription = [
-    'Subtitle',
-    'Description',
-    'Actives',
-    'Ingredients',
-    'Usage',
-]
