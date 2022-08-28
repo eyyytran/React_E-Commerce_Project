@@ -5,7 +5,7 @@ export const fetchInventory = async () => {
     const products = []
     const docs = await getDocs(collection(db, 'products'))
     docs.forEach(doc => {
-        products.push(doc.data())
+        products.push({ ...doc.data(), id: doc.id })
     })
     return products
 }
