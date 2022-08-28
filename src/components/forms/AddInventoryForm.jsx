@@ -15,6 +15,7 @@ const AddInventoryForm = () => {
     const [imageURL1, setImageURL1] = useState('')
     const [imageURL2, setImageURL2] = useState('')
     const [imageURL3, setImageURL3] = useState('')
+    const [price, setPrice] = useState(0)
     const [qty, setQty] = useState(0)
 
     const queryClient = useQueryClient()
@@ -32,6 +33,7 @@ const AddInventoryForm = () => {
                 imageURL1,
                 imageURL2,
                 imageURL3,
+                price,
                 qty,
             })
             setName('')
@@ -44,6 +46,7 @@ const AddInventoryForm = () => {
             setImageURL1('')
             setImageURL2('')
             setImageURL3('')
+            setPrice(0)
             setQty(0)
         } catch (error) {
             console.error(error)
@@ -138,6 +141,13 @@ const AddInventoryForm = () => {
                 placeholder='Tertiary Image'
                 value={imageURL3}
                 onChange={e => setImageURL3(e.target.value)}
+            />
+            <input
+                type='text'
+                name='price'
+                placeholder='Price in USD'
+                value={price}
+                onChange={e => setPrice(e.target.value)}
             />
 
             <input

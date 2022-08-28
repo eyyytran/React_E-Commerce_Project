@@ -15,6 +15,7 @@ const EditInventoryForm = ({ product }) => {
     const [imageURL1, setImageURL1] = useState(product?.imageURL1 || '')
     const [imageURL2, setImageURL2] = useState(product?.imageURL2 || '')
     const [imageURL3, setImageURL3] = useState(product?.imageURL3 || '')
+    const [price, setPrice] = useState(product?.price || 0)
     const [qty, setQty] = useState(product?.qty || 0)
 
     const queryClient = useQueryClient()
@@ -32,6 +33,7 @@ const EditInventoryForm = ({ product }) => {
                 imageURL1,
                 imageURL2,
                 imageURL3,
+                price,
                 qty,
             })
         } catch (error) {
@@ -147,6 +149,13 @@ const EditInventoryForm = ({ product }) => {
                     placeholder={product?.imageURL3}
                     value={imageURL3}
                     onChange={e => setImageURL3(e.target.value)}
+                />
+                <input
+                    type='text'
+                    name='price'
+                    placeholder={product?.price}
+                    value={price}
+                    onChange={e => setPrice(e.target.value)}
                 />
 
                 <input

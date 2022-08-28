@@ -37,6 +37,12 @@ a {
     color: var(--font);
 }
 
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .is-active {
     transform: translate(0);
 }

@@ -6,11 +6,13 @@
     border-bottom: 1px solid gray;
 }
 
+.admin_inventory-item div {
+    margin-right: 10px;
+}
+
 img {
     height: 50px;
     width: 50px;
     object-fit: cover;
-}
-
-.admin_edit-module {
+    margin-right: 10px;
 }
