@@ -7,8 +7,9 @@ const Collection = () => {
     let params = useParams()
     const queryClient = useQueryClient()
 
-    const { data, error, isError, isLoading } = useQuery(['collection'], () =>
-        fetchCollectionByType(params.collection)
+    const { data, error, isError, isLoading } = useQuery(
+        [`collection-${params.collection}`],
+        () => fetchCollectionByType(params.collection)
     )
 
     if (isLoading) {

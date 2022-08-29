@@ -5,9 +5,10 @@ import {
     SEND_CART,
 } from './cartType'
 
-const addToCart = () => {
+const addToCart = product => {
     return {
         type: ADD_TO_CART,
+        payload: product,
     }
 }
 

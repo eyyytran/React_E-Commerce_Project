@@ -20,7 +20,7 @@ const UserNav = () => {
             <a href='/admin'>
                 <AdminPanelSettingsOutlinedIcon />
             </a>
-            <a href='*'>
+            <a href='/cart'>
                 <ShoppingBagOutlinedIcon />
             </a>
             <button onClick={handleLogout}>Logout</button>

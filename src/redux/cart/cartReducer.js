@@ -9,10 +9,10 @@ const initialState = {
     cart: [],
 }
 
-const CartReducer = (state = initialState, action) => {
-    switch (action.type) {
+const cartReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
         case ADD_TO_CART:
-            return { ...state, cart: [...state.cart, action.payload] }
+            return { ...state, cart: [...state.cart, payload] }
         case REMOVE_FROM_CART:
             return state
         case EMPTY_CART:
@@ -24,4 +24,4 @@ const CartReducer = (state = initialState, action) => {
     }
 }
 
-export { CartReducer }
+export { cartReducer }
