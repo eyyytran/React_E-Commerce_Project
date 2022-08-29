@@ -36,8 +36,13 @@ const cartReducer = (state = initialState, { type, payload }) => {
                 }
             }
         case REMOVE_FROM_CART:
+            const matchingProduct = state.cart.find(
+                product => product.id === payload.id
+            )
+            const qty = matchingProduct.qtyToBuy
             return {
                 ...state,
+                subtotal: state.subtotal - payload.price * qty,
                 cart: state.cart.filter(product => product.id !== payload.id),
             }
         case EMPTY_CART:
