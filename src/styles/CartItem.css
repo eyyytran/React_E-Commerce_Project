@@ -1,0 +1,15 @@
+.cart-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-header {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.cart-item img {
+    height: 130px;
+    width: 100px;
+    object-fit: fill;
+}
