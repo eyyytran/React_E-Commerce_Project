@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
     const productToBuy = {
         id: product?.id,
         name: product?.name,
-        price: product?.price,
+        price: parseInt(product?.price),
         img: product?.imageURL1,
         qtyToBuy: 1,
     }

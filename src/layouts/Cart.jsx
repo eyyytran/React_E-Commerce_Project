@@ -11,7 +11,7 @@ const Cart = () => {
                 {cartContents?.length === 0
                     ? 'Your cart is empty'
                     : cartContents?.map(product => {
-                          return <CartItem product={product} />
+                          return <CartItem product={product} key={product.id} />
                       })}
             </div>
             <div className='cart-calculation-container'>
