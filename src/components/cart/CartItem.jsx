@@ -6,6 +6,7 @@ import '../../styles/CartItem.css'
 //     id: product?.id,
 //     name: product?.name,
 //     img: product?.imageURL1,
+//     price: product?.price,
 //     qtyToBuy: 1,
 // }
 
@@ -17,6 +18,7 @@ const CartItem = ({ product }) => {
                 <div className='cart-item-qty'>{product?.qtyToBuy}x</div>
                 <div className='cart-item-name'>{product?.name}</div>
             </div>
+            <div className='cart-item-price'>${product?.price}</div>
             <img src={product?.img} alt='product' />
             <button onClick={() => dispatch(removeFromCart(product))}>
                 Remove
