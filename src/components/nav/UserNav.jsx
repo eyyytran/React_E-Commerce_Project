@@ -9,11 +9,11 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined'
 const UserNav = () => {
     const dispatch = useDispatch()
 
-    function handleLogout() {
+    const handleLogout = () => {
         auth.signOut()
     }
 
-    function handleCartClick(e) {
+    const handleCartClick = e => {
         e.preventDefault()
         dispatch(ToggleIsCartOpen())
     }

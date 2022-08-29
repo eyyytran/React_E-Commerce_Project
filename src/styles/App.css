@@ -64,13 +64,13 @@ button {
 .cart {
     z-index: 9000;
     position: fixed;
-    top: var(--navbarHeight);
+    top: 0;
     right: 0;
-    height: calc(100vh - var(--navbarHeight));
     width: 320px;
     transform: translate(100%);
     transition: transform 0.2s;
-    border: 1px solid red;
+    background-color: aquamarine;
+    overflow-y: scroll;
 }
 
 .cart.is-open {

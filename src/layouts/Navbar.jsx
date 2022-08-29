@@ -1,5 +1,6 @@
 import Logo from '../components/nav/Logo'
 import MainNav from '../components/nav/MainNav'
+import SubMenu from '../components/nav/SubMenu'
 import UserNav from '../components/nav/UserNav'
 import '../styles/Navbar.css'
 
@@ -9,6 +10,7 @@ const Navbar = () => {
             <Logo />
             <MainNav />
             <UserNav />
+            <SubMenu />
         </nav>
     )
 }

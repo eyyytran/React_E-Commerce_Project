@@ -35,6 +35,7 @@ const Cart = () => {
             >
                 <CloseIcon />
             </button>
+            <button className='checkout-btn'>Check Out</button>
         </div>
     )
 }
