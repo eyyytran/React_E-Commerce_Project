@@ -1,10 +1,24 @@
-import { getDocs, collection } from 'firebase/firestore'
+import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
 
 export const fetchInventory = async () => {
     const products = []
     const docs = await getDocs(collection(db, 'products'))
     docs.forEach(doc => {
+        products.push({ ...doc.data(), id: doc.id })
+    })
+    return products
+}
+
+export const fetchCollectionByType = async param => {
+    const products = []
+    const docs = query(
+        collection(db, 'products'),
+        where('type', '==', param.toString())
+    )
+
+    const querySnapshot = await getDocs(docs)
+    querySnapshot.forEach(doc => {
         products.push({ ...doc.data(), id: doc.id })
     })
     return products

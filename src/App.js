@@ -12,6 +12,7 @@ import Signup from './layouts/Signup'
 import Account from './layouts/Account'
 import AdminSettings from './layouts/AdminSettings'
 import './styles/App.css'
+import Collection from './components/collections/Collection'
 
 function App() {
     return (
@@ -19,7 +20,9 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='collections' element={<Collections />} />
+                <Route path='collections' element={<Collections />}>
+                    <Route path=':collection' element={<Collection />} />
+                </Route>
                 <Route path='login' element={<Login />} />
                 <Route path='signup' element={<Signup />} />
                 <Route path='concierge' element={<Concierge />} />
