@@ -7,7 +7,7 @@ const CartCalculations = () => {
         <div className='cart-calculations'>
             <div className='subtotal-container'>
                 <div className='subtotal-header'>Subtotal</div>
-                <div className='subtotal'>$ {subtotal}</div>
+                <div className='subtotal'>$ {subtotal.toFixed(2)}</div>
             </div>
             <div className='tax-container'>
                 <div className='tax-header'>
