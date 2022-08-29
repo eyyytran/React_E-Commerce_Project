@@ -1,4 +1,9 @@
-import { SET_IS_ADMIN, SET_USER } from './appType'
+import {
+    SET_IS_ADMIN,
+    SET_USER,
+    SET_IS_CART_OPEN,
+    TOGGLE_IS_CART_OPEN,
+} from './appType'
 
 const SetIsAdmin = isAdmin => {
     return {
@@ -14,4 +19,17 @@ const SetUser = user => {
     }
 }
 
-export { SetIsAdmin, SetUser }
+const SetIsCartOpen = isOpen => {
+    return {
+        type: SET_IS_CART_OPEN,
+        payload: isOpen,
+    }
+}
+
+const ToggleIsCartOpen = () => {
+    return {
+        type: TOGGLE_IS_CART_OPEN,
+    }
+}
+
+export { SetIsAdmin, SetUser, SetIsCartOpen, ToggleIsCartOpen }

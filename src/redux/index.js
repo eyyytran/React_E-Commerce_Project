@@ -7,4 +7,9 @@ export {
     removeFromCart,
 } from './cart/cartAction'
 
-export { SetIsAdmin, SetUser } from './app/appAction'
+export {
+    SetIsAdmin,
+    SetUser,
+    SetIsCartOpen,
+    ToggleIsCartOpen,
+} from './app/appAction'

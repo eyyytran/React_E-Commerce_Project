@@ -23,16 +23,12 @@ const cartReducer = (state = initialState, { type, payload }) => {
                     cart: [...state.cart, payload],
                 }
             } else {
-                const matchingProduct = state.cart.splice(
-                    matchingProductIndex,
-                    1
-                )
-                matchingProduct[0].qtyToBuy = matchingProduct[0].qtyToBuy + 1
-                state.cart.splice(matchingProductIndex, 0, matchingProduct[0])
+                const newCart = Array.from(state.cart)
+                newCart[matchingProductIndex].qtyToBuy++
                 return {
                     ...state,
                     subtotal: state.subtotal + payload.price,
-                    cart: [...state.cart],
+                    cart: newCart,
                 }
             }
         case REMOVE_FROM_CART:

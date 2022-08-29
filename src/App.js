@@ -6,13 +6,13 @@ import Footer from './layouts/Footer'
 import Home from './layouts/Home'
 import Navbar from './layouts/Navbar'
 import Collections from './layouts/Collections'
+import Collection from './components/collections/Collection'
 import Login from './layouts/Login'
 import Concierge from './layouts/Concierge'
 import Signup from './layouts/Signup'
 import Account from './layouts/Account'
 import AdminSettings from './layouts/AdminSettings'
 import './styles/App.css'
-import Collection from './components/collections/Collection'
 
 function App() {
     return (

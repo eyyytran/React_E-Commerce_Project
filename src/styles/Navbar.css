@@ -1,6 +1,8 @@
+@import './root.css';
+
 nav {
     background-color: lightcoral;
-    height: 45px;
+    height: var(--navbarHeight);
     width: 100vw;
     padding-left: 3rem;
     padding-right: 3rem;

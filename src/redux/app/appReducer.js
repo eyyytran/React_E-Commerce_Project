@@ -1,8 +1,14 @@
-import { SET_IS_ADMIN, SET_USER } from './appType'
+import {
+    SET_IS_ADMIN,
+    SET_USER,
+    SET_IS_CART_OPEN,
+    TOGGLE_IS_CART_OPEN,
+} from './appType'
 
 const initialState = {
     isAdmin: null,
     user: null,
+    isCartOpen: false,
 }
 
 const appReducer = (state = initialState, { type, payload }) => {
@@ -11,6 +17,10 @@ const appReducer = (state = initialState, { type, payload }) => {
             return { ...state, isAdmin: payload }
         case SET_USER:
             return { ...state, user: payload }
+        case SET_IS_CART_OPEN:
+            return { ...state, isCartOpen: payload }
+        case TOGGLE_IS_CART_OPEN:
+            return { ...state, isCartOpen: !state.isCartOpen }
         default:
             return state
     }
