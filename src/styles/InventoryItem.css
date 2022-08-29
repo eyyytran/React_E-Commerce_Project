@@ -10,7 +10,7 @@
     margin-right: 10px;
 }
 
-img {
+.admin_inventory-item img {
     height: 50px;
     width: 50px;
     object-fit: cover;

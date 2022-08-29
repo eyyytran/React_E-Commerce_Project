@@ -1,12 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { useQueryClient, useQuery } from 'react-query'
 import { fetchCollectionByType } from '../utils/dbRequests'
+import ProductCard from './ProductCard'
 
 const Collection = () => {
     let params = useParams()
     const queryClient = useQueryClient()
 
-    const { data, error, isError, isLoading } = useQuery(['products'], () =>
+    const { data, error, isError, isLoading } = useQuery(['collection'], () =>
         fetchCollectionByType(params.collection)
     )
 
@@ -19,10 +20,9 @@ const Collection = () => {
 
     return (
         <div>
-            Collection
-            {params.collection}
+            <h1>{params.collection.toUpperCase()}</h1>
             {data?.map(product => {
-                return <div>{product.name}</div>
+                return <ProductCard product={product} key={product.id} />
             })}
         </div>
     )
