@@ -1,17 +1,22 @@
 import { useSelector } from 'react-redux'
+import CartCalculations from '../components/cart/CartCalculations'
 import CartItem from '../components/cart/CartItem'
 
 const Cart = () => {
     const cartContents = useSelector(state => state.cart.cart)
-    console.log(cartContents)
     return (
         <div className='cart'>
             <h1>Your Cart</h1>
-            {cartContents?.length === 0
-                ? 'Your cart is empty'
-                : cartContents?.map(product => {
-                      return <CartItem product={product} />
-                  })}
+            <div className='cart-item-container'>
+                {cartContents?.length === 0
+                    ? 'Your cart is empty'
+                    : cartContents?.map(product => {
+                          return <CartItem product={product} />
+                      })}
+            </div>
+            <div className='cart-calculation-container'>
+                <CartCalculations />
+            </div>
         </div>
     )
 }

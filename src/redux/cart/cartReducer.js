@@ -7,12 +7,29 @@ import {
 
 const initialState = {
     cart: [],
+    subtotal: 0,
 }
 
 const cartReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case ADD_TO_CART:
-            return { ...state, cart: [...state.cart, payload] }
+            const matchingProductIndex = state.cart.findIndex(
+                product => product.id === payload.id
+            )
+            if (matchingProductIndex === -1) {
+                return {
+                    ...state,
+                    cart: [...state.cart, payload],
+                }
+            } else {
+                const matchingProduct = state.cart.splice(
+                    matchingProductIndex,
+                    1
+                )
+                matchingProduct[0].qtyToBuy = matchingProduct[0].qtyToBuy + 1
+                state.cart.splice(matchingProductIndex, 0, matchingProduct[0])
+                return { ...state, cart: [...state.cart] }
+            }
         case REMOVE_FROM_CART:
             return {
                 ...state,
