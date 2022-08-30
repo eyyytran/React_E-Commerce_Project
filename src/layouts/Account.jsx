@@ -1,9 +1,14 @@
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import AccountForm from '../components/forms/AccountForm'
 import DeleteAccountForm from '../components/forms/DeleteAccountForm'
+import ReAuthForm from '../components/forms/ReAuthForm'
 import Shelfie from '../components/Shelfie'
 import { auth } from '../firebaseConfig'
 
 const Account = () => {
+    const [isAuth, setIsAuth] = useState(false)
+    const user = useSelector(state => state.app.user)
     const handleLogout = () => {
         auth.signOut()
     }
@@ -12,14 +17,27 @@ const Account = () => {
         <div className='account-container'>
             <div className='header-container'>
                 <div className='greeting'>
-                    <h1>Welcome,</h1>
+                    <h1>Hello, {user.displayName}</h1>
                 </div>
                 <button onClick={handleLogout}>Sign Out</button>
             </div>
             <div className='shelfie-container'>
                 <Shelfie />
             </div>
-            <div className='account-settings-container'>
+            <div
+                className={
+                    !isAuth ? 'reauth-container' : 'reauth-container hidden'
+                }
+            >
+                <ReAuthForm setIsAuth={setIsAuth} />
+            </div>
+            <div
+                className={
+                    !isAuth
+                        ? 'account-settings-container hidden'
+                        : 'account-settings-container'
+                }
+            >
                 <AccountForm />
                 <DeleteAccountForm />
             </div>

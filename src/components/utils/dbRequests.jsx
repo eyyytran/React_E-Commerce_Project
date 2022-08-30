@@ -1,4 +1,5 @@
 import { getDocs, collection, query, where } from 'firebase/firestore'
+import { updateProfile } from 'firebase/auth'
 import { db } from '../../firebaseConfig'
 
 export const fetchInventory = async () => {
@@ -22,4 +23,10 @@ export const fetchCollectionByType = async param => {
         products.push({ ...doc.data(), id: doc.id })
     })
     return products
+}
+
+export const updateDisplayName = async (user, newDisplayName) => {
+    updateProfile(user, {
+        displayName: newDisplayName,
+    })
 }
