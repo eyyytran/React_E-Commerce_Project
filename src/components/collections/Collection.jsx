@@ -1,15 +1,22 @@
 import { useParams } from 'react-router-dom'
 import { useQueryClient, useQuery } from 'react-query'
-import { fetchCollectionByType } from '../utils/dbRequests'
+import { fetchCollectionByType, fetchInventory } from '../utils/dbRequests'
 import ProductCard from './ProductCard'
 
 const Collection = () => {
     let params = useParams()
     const queryClient = useQueryClient()
+    let dbRequest = ''
+
+    if (params.collection === 'all') {
+        dbRequest = fetchInventory()
+    } else {
+        dbRequest = fetchCollectionByType(params.collection)
+    }
 
     const { data, error, isError, isLoading } = useQuery(
         [`collection-${params.collection}`],
-        () => fetchCollectionByType(params.collection)
+        () => dbRequest
     )
 
     if (isLoading) {
