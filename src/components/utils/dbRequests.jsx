@@ -1,5 +1,5 @@
 import { getDocs, collection, query, where } from 'firebase/firestore'
-import { updateProfile, updateEmail } from 'firebase/auth'
+import { updateProfile, updateEmail, updatePassword } from 'firebase/auth'
 import { db } from '../../firebaseConfig'
 
 export const fetchInventory = async () => {
@@ -33,4 +33,8 @@ export const updateDisplayName = async (user, newDisplayName) => {
 
 export const updateUserEmail = async (user, newEmail) => {
     updateEmail(user, newEmail)
+}
+
+export const updateUserPassword = async (user, newPassword) => {
+    updatePassword(user, newPassword)
 }

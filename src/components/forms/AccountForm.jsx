@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { getAuth, updatePassword } from 'firebase/auth'
 import { isRequired, isEmail, isSecure } from '../utils/validations'
-import { updateDisplayName, updateUserEmail } from '../utils/dbRequests'
+import {
+    updateDisplayName,
+    updateUserEmail,
+    updateUserPassword,
+} from '../utils/dbRequests'
 
 const AccountForm = () => {
     const [name, setName] = useState('')
@@ -26,6 +30,23 @@ const AccountForm = () => {
         return valid
     }
 
+    const validatePassword = () => {
+        let valid = false
+        if (!isRequired(password)) {
+            setError('Password is required')
+        } else if (!isSecure(password)) {
+            setError(
+                'Passwords must be between 8-50 characters, include 1 uppercase, 1 number, and 1 special character'
+            )
+        } else if (password !== confirm) {
+            setError('Passwords do not match')
+        } else {
+            setError('')
+            valid = true
+        }
+        return valid
+    }
+
     const handleSubmit = e => {
         e.preventDefault()
         if (name) {
@@ -38,12 +59,20 @@ const AccountForm = () => {
                 setError('unable to update display name')
             }
         }
-        if (validateEmail()) {
+        if (email && validateEmail()) {
             try {
                 updateUserEmail(auth.currentUser, email)
                 setSuccess('successfully updated email')
             } catch (error) {
                 setError('unable to update email')
+            }
+        }
+        if (password && validatePassword()) {
+            try {
+                updateUserPassword(auth.currentUser, password)
+                setSuccess('successfully updated password')
+            } catch (error) {
+                setError('')
             }
         }
     }
