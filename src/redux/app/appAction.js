@@ -3,7 +3,7 @@ import {
     SET_USER,
     SET_IS_CART_OPEN,
     TOGGLE_IS_CART_OPEN,
-    TOGGLE_IS_SUBMENU_OPEN,
+    SET_IS_SUBMENU_OPEN,
 } from './appType'
 
 const SetIsAdmin = isAdmin => {
@@ -33,9 +33,10 @@ const ToggleIsCartOpen = () => {
     }
 }
 
-const ToggleIsSubmenuOpen = () => {
+const SetIsSubmenuOpen = isOpen => {
     return {
-        type: TOGGLE_IS_SUBMENU_OPEN,
+        type: SET_IS_SUBMENU_OPEN,
+        payload: isOpen,
     }
 }
 
@@ -44,5 +45,5 @@ export {
     SetUser,
     SetIsCartOpen,
     ToggleIsCartOpen,
-    ToggleIsSubmenuOpen,
+    SetIsSubmenuOpen,
 }

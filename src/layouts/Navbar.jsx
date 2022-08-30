@@ -3,7 +3,7 @@ import Logo from '../components/nav/Logo'
 import MainNav from '../components/nav/MainNav'
 import SubMenu from '../components/nav/SubMenu'
 import UserNav from '../components/nav/UserNav'
-import { ToggleIsSubmenuOpen } from '../redux'
+import { SetIsSubmenuOpen } from '../redux'
 import '../styles/Navbar.css'
 
 const Navbar = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
                         ? 'submenu_container'
                         : 'submenu_container is-open'
                 }
-                onMouseLeave={() => dispatch(ToggleIsSubmenuOpen())}
+                onMouseLeave={() => dispatch(SetIsSubmenuOpen(false))}
             >
                 <SubMenu />
             </nav>

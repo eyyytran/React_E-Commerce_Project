@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { ToggleIsSubmenuOpen } from '../../redux'
+import { SetIsSubmenuOpen } from '../../redux'
 
 const MainNav = () => {
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ const MainNav = () => {
                 <a
                     className='main_nav_link'
                     href='*'
-                    onMouseEnter={() => dispatch(ToggleIsSubmenuOpen())}
+                    onMouseEnter={() => dispatch(SetIsSubmenuOpen(true))}
                 >
                     SHOP
                 </a>

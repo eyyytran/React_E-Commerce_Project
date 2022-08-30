@@ -35,6 +35,10 @@
     padding-right: 3rem;
 }
 
+.submenu_container:hover {
+    transform: translate(0);
+}
+
 .submenu {
     background-color: greenyellow;
     display: flex;
