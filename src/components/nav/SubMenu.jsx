@@ -3,7 +3,7 @@ import { productTypes } from '../utils/productTypes'
 
 const SubMenu = () => {
     return (
-        <div className='submenu-container'>
+        <div className='submenu'>
             <Link to='collections/all'>ALL PRODUCTS</Link>
             {productTypes.map(type => {
                 return (

@@ -3,6 +3,7 @@ import {
     SET_USER,
     SET_IS_CART_OPEN,
     TOGGLE_IS_CART_OPEN,
+    TOGGLE_IS_SUBMENU_OPEN,
 } from './appType'
 
 const SetIsAdmin = isAdmin => {
@@ -32,4 +33,16 @@ const ToggleIsCartOpen = () => {
     }
 }
 
-export { SetIsAdmin, SetUser, SetIsCartOpen, ToggleIsCartOpen }
+const ToggleIsSubmenuOpen = () => {
+    return {
+        type: TOGGLE_IS_SUBMENU_OPEN,
+    }
+}
+
+export {
+    SetIsAdmin,
+    SetUser,
+    SetIsCartOpen,
+    ToggleIsCartOpen,
+    ToggleIsSubmenuOpen,
+}

@@ -12,4 +12,5 @@ export {
     SetUser,
     SetIsCartOpen,
     ToggleIsCartOpen,
+    ToggleIsSubmenuOpen,
 } from './app/appAction'

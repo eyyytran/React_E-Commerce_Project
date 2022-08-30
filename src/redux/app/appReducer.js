@@ -3,12 +3,14 @@ import {
     SET_USER,
     SET_IS_CART_OPEN,
     TOGGLE_IS_CART_OPEN,
+    TOGGLE_IS_SUBMENU_OPEN,
 } from './appType'
 
 const initialState = {
     isAdmin: null,
     user: null,
     isCartOpen: false,
+    isSubmenuOpen: false,
 }
 
 const appReducer = (state = initialState, { type, payload }) => {
@@ -21,6 +23,8 @@ const appReducer = (state = initialState, { type, payload }) => {
             return { ...state, isCartOpen: payload }
         case TOGGLE_IS_CART_OPEN:
             return { ...state, isCartOpen: !state.isCartOpen }
+        case TOGGLE_IS_SUBMENU_OPEN:
+            return { ...state, isSubmenuOpen: !state.isSubmenuOpen }
         default:
             return state
     }

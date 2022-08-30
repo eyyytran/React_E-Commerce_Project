@@ -1,11 +1,18 @@
 @import './root.css';
 
-nav {
-    background-color: lightcoral;
-    height: var(--navbarHeight);
+.nav_container {
+    height: calc(var(--navbarHeight));
     width: 100vw;
     padding-left: 3rem;
     padding-right: 3rem;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.main_nav_container {
+    z-index: 9001;
+    background-color: coral;
+    height: var(--navbarHeight);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,6 +22,28 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.submenu_container {
+    width: 100%;
+    position: absolute;
+    z-index: 9000;
+    top: var(--navbarHeight);
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.submenu {
+    background-color: greenyellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .main_nav_item {
