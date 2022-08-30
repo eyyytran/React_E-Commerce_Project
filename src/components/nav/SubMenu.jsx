@@ -7,7 +7,7 @@ const SubMenu = () => {
             <Link to='collections/all'>ALL PRODUCTS</Link>
             {productTypes.map(type => {
                 return (
-                    <Link to={`collections/${type.toLowerCase()}`}>
+                    <Link to={`collections/${type.toLowerCase()}`} key={type}>
                         {type.toUpperCase()}
                     </Link>
                 )
