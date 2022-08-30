@@ -1,12 +1,7 @@
 import { useState } from 'react'
-import {
-    getAuth,
-    updatePassword,
-    updateEmail,
-    updateProfile,
-} from 'firebase/auth'
-
-import { updateDisplayName } from '../utils/dbRequests'
+import { getAuth, updatePassword } from 'firebase/auth'
+import { isRequired, isEmail, isSecure } from '../utils/validations'
+import { updateDisplayName, updateUserEmail } from '../utils/dbRequests'
 
 const AccountForm = () => {
     const [name, setName] = useState('')
@@ -18,14 +13,37 @@ const AccountForm = () => {
 
     const auth = getAuth()
 
+    const validateEmail = () => {
+        let valid = false
+        if (!isRequired(email)) {
+            setError('Email is required.')
+        } else if (!isEmail(email)) {
+            setError('Not a valid email')
+        } else {
+            setError('')
+            valid = true
+        }
+        return valid
+    }
+
     const handleSubmit = e => {
         e.preventDefault()
         if (name) {
             try {
                 updateDisplayName(auth.currentUser, name)
                 setSuccess('successfully updated display name')
+                setError('')
+                setName('')
             } catch (error) {
                 setError('unable to update display name')
+            }
+        }
+        if (validateEmail()) {
+            try {
+                updateUserEmail(auth.currentUser, email)
+                setSuccess('successfully updated email')
+            } catch (error) {
+                setError('unable to update email')
             }
         }
     }
