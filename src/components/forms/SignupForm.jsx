@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { auth } from '../../firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
@@ -9,6 +10,8 @@ const SignupForm = () => {
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
     const [confirmError, setConfirmError] = useState('')
+
+    const navigate = useNavigate()
 
     const isRequired = value => (value === '' ? false : true)
 
@@ -71,8 +74,8 @@ const SignupForm = () => {
         e.preventDefault()
         if (validateForm()) {
             createUserWithEmailAndPassword(auth, email, password)
-                .then(res => {
-                    console.log(res.user)
+                .then(() => {
+                    navigate('/')
                 })
                 .catch(err => console.error(err))
         }

@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
+    deleteUser,
     EmailAuthProvider,
     getAuth,
     reauthenticateWithCredential,
@@ -9,6 +11,7 @@ const DeleteAccountForm = () => {
     const [password, setPassword] = useState('')
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState('')
+    const navigate = useNavigate()
     const auth = getAuth()
 
     const handleReAuth = async e => {
@@ -27,9 +30,14 @@ const DeleteAccountForm = () => {
         }
     }
 
-    const handleDelete = e => {
+    const handleDelete = async e => {
         e.preventDefault()
-        console.log('deleted')
+        try {
+            await deleteUser(auth.currentUser)
+            navigate('/')
+        } catch (error) {
+            setError('unable to delete user')
+        }
     }
     return (
         <form>
