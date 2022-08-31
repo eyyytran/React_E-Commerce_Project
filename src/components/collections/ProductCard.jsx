@@ -36,22 +36,27 @@ const ProductCard = ({ product }) => {
                     <button>Quick Shop</button>
                 </div>
             </div>
-            <div className='product-name'>{product?.name}</div>
-            <div className='product-subtitle'>{product?.subtitle}</div>
-            <button disabled={product?.qty === 0 ? true : false}>
-                <div className='button-text' onClick={handleClick}>
-                    {product?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
-                </div>
-                <div
-                    className={
-                        product?.qty === 0
-                            ? 'product-price hidden'
-                            : 'product-price'
-                    }
+            <div className='product-card-content'>
+                <div className='product-name'>{product?.name}</div>
+                <div className='product-subtitle'>{product?.subtitle}</div>
+                <button
+                    disabled={product?.qty === 0 ? true : false}
+                    style={product?.qty === 0 ? { placeContent: 'center' } : {}}
                 >
-                    {product?.price}
-                </div>
-            </button>
+                    <div className='button-text' onClick={handleClick}>
+                        {product?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
+                    </div>
+                    <div
+                        className={
+                            product?.qty === 0
+                                ? 'product-price hidden'
+                                : 'product-price'
+                        }
+                    >
+                        ${product?.price}
+                    </div>
+                </button>
+            </div>
             <QuickShop />
         </div>
     )

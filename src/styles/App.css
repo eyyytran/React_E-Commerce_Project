@@ -36,6 +36,10 @@ a {
     color: var(--font);
 }
 
+h1 {
+    margin-bottom: 0;
+}
+
 button {
     background: none;
     border: none;
@@ -56,6 +60,15 @@ button {
     font-weight: bold;
 }
 
+.primary-btn {
+    height: var(--primarybtnHeight);
+    width: var(--primarybtnWidth);
+    background-color: var(--black);
+    color: var(--white);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
 .homepage {
     height: 100%;
     width: 100%;
@@ -65,6 +78,23 @@ button {
     height: auto;
     width: 100vw;
     object-position: bottom;
+}
+
+.featured-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.featured-products {
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .cart {

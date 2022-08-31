@@ -1,10 +1,17 @@
 :root {
     --font: black;
     --white: #ffffff;
+    --black: #000000;
+    --gray: rgb(241, 241, 241, 0.5);
+    --overlay: #fffc;
     --borderColor: rgba(0, 0, 0, 0.35);
     --navbarHeight: 80px;
     --submenuHeight: 100px;
     --mobileNavWidth: 360px;
+    --primarybtnWidth: 180px;
+    --primarybtnHeight: 50px;
+    --productCardWidth: 175px;
+    --productCardImgHeight: 230px;
 }
 
 @media only screen and (min-width: 900px) {
