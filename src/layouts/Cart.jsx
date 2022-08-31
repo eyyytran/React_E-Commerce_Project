@@ -4,7 +4,7 @@ import CartCalculations from '../components/cart/CartCalculations'
 import CartItem from '../components/cart/CartItem'
 import EmptyCart from '../components/cart/EmptyCart'
 import CloseIcon from '@mui/icons-material/Close'
-import { ToggleIsCartOpen } from '../redux'
+import { ToggleIsCartOpen, SetIsCartOpen } from '../redux'
 
 const Cart = () => {
     const cartContents = useSelector(state => state.cart.cart)
@@ -36,7 +36,11 @@ const Cart = () => {
             >
                 <CloseIcon />
             </button>
-            <Link className='checkout-btn' to='/checkout'>
+            <Link
+                className='checkout-btn'
+                to='/checkout'
+                onClick={() => dispatch(SetIsCartOpen(false))}
+            >
                 Check Out
             </Link>
         </div>

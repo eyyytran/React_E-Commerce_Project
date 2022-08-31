@@ -42,7 +42,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
                 cart: state.cart.filter(product => product.id !== payload.id),
             }
         case EMPTY_CART:
-            return { ...state, cart: initialState.cart }
+            return { ...state, subtotal: 0, cart: [] }
         case SEND_CART:
             return state
         default:

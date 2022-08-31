@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useQueryClient } from 'react-query'
 import { db } from '../firebaseConfig'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { emptyCart } from '../redux'
 
 const PayPalBtnWrapper = () => {
     const queryClient = useQueryClient()
-
+    const reduxDispatch = useDispatch()
     const [showButtons, setShowButtons] = useState(false)
     const [{ options, isPending }, dispatch] = usePayPalScriptReducer()
     const total = useSelector(state => state.cart.subtotal)
@@ -52,6 +53,7 @@ const PayPalBtnWrapper = () => {
                 return actions.order.capture().then(details => {
                     console.log('on approve', details)
                     //invalidate cache
+                    reduxDispatch(emptyCart())
                     updateQty()
                     queryClient.invalidateQueries()
                     //update inventory
