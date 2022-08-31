@@ -12,7 +12,7 @@ const MainNav = () => {
             <li className='main_nav_item'>
                 <a
                     className='main_nav_link'
-                    href='*'
+                    href='/collections/all'
                     onMouseEnter={() => dispatch(SetIsSubmenuOpen(true))}
                 >
                     SHOP
