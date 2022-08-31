@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart, SetIsCartOpen } from '../../redux'
 import '../../styles/productCard.css'
+import QuickShop from './QuickShop'
 
 const ProductCard = ({ product }) => {
     const [isHover, setIsHover] = useState(false)
@@ -51,6 +52,7 @@ const ProductCard = ({ product }) => {
                     {product?.price}
                 </div>
             </button>
+            <QuickShop />
         </div>
     )
 }
