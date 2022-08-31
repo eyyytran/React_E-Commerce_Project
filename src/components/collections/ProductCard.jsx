@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart, SetIsCartOpen } from '../../redux'
-import '../../styles/ProductCard.css'
+import '../../styles/productCard.css'
 
 const ProductCard = ({ product }) => {
+    const [isHover, setIsHover] = useState(false)
     const dispatch = useDispatch()
     const productToBuy = {
         id: product?.id,
@@ -17,14 +19,37 @@ const ProductCard = ({ product }) => {
     }
     return (
         <div className='product-card'>
-            <img src={product?.imageURL1} alt='product' />
+            <div
+                className='product-image-container'
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
+            >
+                <img src={product?.imageURL1} alt='product' />
+                <div
+                    className='product-overlay'
+                    style={!isHover ? { display: 'none' } : { display: 'flex' }}
+                >
+                    <p className='product-description'>
+                        {product?.description}
+                    </p>
+                    <button>Quick Shop</button>
+                </div>
+            </div>
             <div className='product-name'>{product?.name}</div>
             <div className='product-subtitle'>{product?.subtitle}</div>
-            <button>
+            <button disabled={product?.qty === 0 ? true : false}>
                 <div className='button-text' onClick={handleClick}>
-                    Add to Bag
+                    {product?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
                 </div>
-                <div className='product-price'>{product?.price}</div>
+                <div
+                    className={
+                        product?.qty === 0
+                            ? 'product-price hidden'
+                            : 'product-price'
+                    }
+                >
+                    {product?.price}
+                </div>
             </button>
         </div>
     )
