@@ -21,7 +21,6 @@
     left: 0;
     height: 350px;
     width: 250px;
-    /* display: none; */
     flex-direction: column;
     justify-content: flex-end;
     padding: 1em 1em 3em;

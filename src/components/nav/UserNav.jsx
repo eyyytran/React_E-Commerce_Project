@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { ToggleIsCartOpen } from '../../redux'
-import { auth } from '../../firebaseConfig'
+
 import SearchIcon from '@mui/icons-material/Search'
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined'
@@ -8,10 +8,6 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined'
 
 const UserNav = () => {
     const dispatch = useDispatch()
-
-    const handleLogout = () => {
-        auth.signOut()
-    }
 
     const handleCartClick = e => {
         e.preventDefault()
@@ -32,7 +28,6 @@ const UserNav = () => {
             <a href='*' onClick={handleCartClick}>
                 <ShoppingBagOutlinedIcon />
             </a>
-            <button onClick={handleLogout}>Logout</button>
         </div>
     )
 }

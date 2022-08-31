@@ -3,10 +3,6 @@ import { SetIsSubmenuOpen } from '../../redux'
 
 const MainNav = () => {
     const dispatch = useDispatch()
-    // const handleShopClick = e => {
-    //     e.preventDefault()
-    //     dispatch(ToggleIsSubmenuOpen())
-    // }
     return (
         <div className='main_nav_items-container'>
             <li className='main_nav_item'>

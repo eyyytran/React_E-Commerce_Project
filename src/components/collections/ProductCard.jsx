@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart, SetIsCartOpen } from '../../redux'
-import '../../styles/productCard.css'
 import QuickShop from './QuickShop'
+import '../../styles/productCard.css'
 
 const ProductCard = ({ product }) => {
     const [isHover, setIsHover] = useState(false)

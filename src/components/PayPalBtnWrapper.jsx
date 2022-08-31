@@ -15,7 +15,7 @@ const PayPalBtnWrapper = () => {
     const cart = useSelector(state => state.cart.cart)
 
     useEffect(() => {
-        setTimeout(() => setShowButtons(true), 100)
+        setTimeout(() => setShowButtons(true), 200)
     }, [])
 
     const updateQty = async () => {
