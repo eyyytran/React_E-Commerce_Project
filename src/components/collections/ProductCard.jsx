@@ -30,15 +30,14 @@ const ProductCard = ({ product }) => {
                     className='product-overlay'
                     style={!isHover ? { display: 'none' } : { display: 'flex' }}
                 >
-                    <p className='product-description'>
-                        {product?.description}
-                    </p>
                     <button>Quick Shop</button>
                 </div>
             </div>
             <div className='product-card-content'>
-                <div className='product-name'>{product?.name}</div>
-                <div className='product-subtitle'>{product?.subtitle}</div>
+                <div>
+                    <div className='product-name'>{product?.name}</div>
+                    <div className='product-subtitle'>{product?.subtitle}</div>
+                </div>
                 <button
                     disabled={product?.qty === 0 ? true : false}
                     style={product?.qty === 0 ? { placeContent: 'center' } : {}}

@@ -91,7 +91,7 @@ button {
 }
 
 .featured-products {
-    max-width: 100vw;
+    max-width: 760px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -122,4 +122,13 @@ button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+@media only screen and (min-width: 900px) {
+    .featured-banner {
+        max-width: 760px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-bottom: 20px;
+    }
 }

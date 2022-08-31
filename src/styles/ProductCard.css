@@ -19,6 +19,8 @@
     width: calc(var(--productCardWidth) - 10px);
     padding: 10px;
     margin: 5px;
+    position: absolute;
+    bottom: 5px;
 }
 
 .button-text,
@@ -45,10 +47,12 @@
 }
 
 .product-card-content {
+    height: 205px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    position: relative;
 }
 
 .product-overlay {
@@ -59,6 +63,5 @@
     width: var(--productCardWidth);
     flex-direction: column;
     justify-content: flex-end;
-    padding: 1em 1em 3em;
     background-color: var(--overlay);
 }

@@ -3,7 +3,6 @@
 .nav_container {
     height: var(--navbarHeight);
     width: 100vw;
-
     display: grid;
     grid-template-rows: auto auto;
 }
@@ -109,8 +108,8 @@
 
 @media only screen and (min-width: 900px) {
     .nav_container {
-        margin-left: 3rem;
-        margin-right: 3rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 
     .submenu {
