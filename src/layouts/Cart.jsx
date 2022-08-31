@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import CartCalculations from '../components/cart/CartCalculations'
 import CartItem from '../components/cart/CartItem'
 import EmptyCart from '../components/cart/EmptyCart'
@@ -10,7 +11,7 @@ const Cart = () => {
     const isCartOpen = useSelector(state => state.app.isCartOpen)
     const dispatch = useDispatch()
 
-    function handleCloseClick() {
+    const handleCloseClick = () => {
         dispatch(ToggleIsCartOpen())
     }
 
@@ -35,7 +36,9 @@ const Cart = () => {
             >
                 <CloseIcon />
             </button>
-            <button className='checkout-btn'>Check Out</button>
+            <Link className='checkout-btn' to='/checkout'>
+                Check Out
+            </Link>
         </div>
     )
 }

@@ -12,6 +12,7 @@ import Concierge from './layouts/Concierge'
 import Signup from './layouts/Signup'
 import Account from './layouts/Account'
 import AdminSettings from './layouts/AdminSettings'
+import Checkout from './layouts/Checkout'
 import './styles/App.css'
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
                 <Route path='login' element={<Login />} />
                 <Route path='signup' element={<Signup />} />
                 <Route path='concierge' element={<Concierge />} />
-
+                <Route path='checkout' element={<Checkout />} />
                 <Route element={<PrivateRoutes />}>
                     <Route path='account' element={<Account />} />
                 </Route>
