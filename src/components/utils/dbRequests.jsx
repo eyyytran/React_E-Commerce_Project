@@ -1,10 +1,15 @@
-import { getDocs, collection, query, where } from 'firebase/firestore'
+import {
+    getDocs,
+    collection as firestoreCollection,
+    query,
+    where,
+} from 'firebase/firestore'
 import { updateProfile, updateEmail, updatePassword } from 'firebase/auth'
 import { db } from '../../firebaseConfig'
 
 export const fetchInventory = async () => {
     const products = []
-    const docs = await getDocs(collection(db, 'products'))
+    const docs = await getDocs(firestoreCollection(db, 'products'))
     docs.forEach(doc => {
         products.push({ ...doc.data(), id: doc.id })
     })
@@ -14,8 +19,22 @@ export const fetchInventory = async () => {
 export const fetchCollectionByType = async param => {
     const products = []
     const docs = query(
-        collection(db, 'products'),
+        firestoreCollection(db, 'products'),
         where('type', '==', param.toString())
+    )
+
+    const querySnapshot = await getDocs(docs)
+    querySnapshot.forEach(doc => {
+        products.push({ ...doc.data(), id: doc.id })
+    })
+    return products
+}
+
+export const fetchCollection = async collection => {
+    const products = []
+    const docs = query(
+        firestoreCollection(db, 'products'),
+        where('type', '==', collection)
     )
 
     const querySnapshot = await getDocs(docs)

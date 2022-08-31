@@ -1,5 +1,14 @@
 :root {
     --font: black;
-    --navbarHeight: 45px;
+    --white: #ffffff;
+    --borderColor: rgba(0, 0, 0, 0.35);
+    --navbarHeight: 80px;
     --submenuHeight: 100px;
+    --mobileNavWidth: 360px;
+}
+
+@media only screen and (min-width: 900px) {
+    :root {
+        --navbarHeight: 45px;
+    }
 }

@@ -2,10 +2,6 @@
 
 /* font-family: 'Source Sans Pro', sans-serif;
 font-family: 'Source Serif Pro', serif; */
-/* :root {
-    --font: black;
-    --navbarHeight: 45px;
-} */
 
 @import './root.css';
 
@@ -63,6 +59,12 @@ button {
 .homepage {
     height: 100%;
     width: 100%;
+}
+
+.hero-container img {
+    height: auto;
+    width: 100vw;
+    object-position: bottom;
 }
 
 .cart {

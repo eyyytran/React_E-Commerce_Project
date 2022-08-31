@@ -20,7 +20,7 @@ const MobileNavSub = () => {
                 style={{
                     paddingBottom: '10px',
                     paddingTop: '10px',
-                    borderTop: '1px solid black',
+                    borderTop: '1px solid var(--borderColor)',
                 }}
                 onClick={handleLinkClick}
             >
@@ -34,7 +34,7 @@ const MobileNavSub = () => {
                         style={{
                             paddingBottom: '10px',
                             paddingTop: '10px',
-                            borderTop: '1px solid black',
+                            borderTop: '1px solid var(--borderColor)',
                         }}
                         onClick={handleLinkClick}
                     >

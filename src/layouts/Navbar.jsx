@@ -18,25 +18,26 @@ import MobileNavSub from '../components/nav/MobileNavSub'
 const Navbar = () => {
     const dispatch = useDispatch()
     const isSubmenuOpen = useSelector(state => state.app.isSubmenuOpen)
-    const isNavSubOpen = useSelector(state => state.app.isNavSubOpen)
     const isMobileNavOpen = useSelector(state => state.app.isMobileNavOpen)
     const isMobileSubOpen = useSelector(state => state.app.isMobileSubOpen)
 
     return (
         <div className='nav_container'>
             <nav className='main_nav_container'>
-                <Box display={!isMobileNavOpen ? 'block' : 'none'}>
-                    <MenuIcon
-                        fontSize='large'
-                        onClick={() => dispatch(SetIsMobileNavOpen(true))}
-                    />
-                </Box>
-                <Box display={!isMobileNavOpen ? 'none' : 'block'}>
-                    <CloseIcon
-                        fontSize='large'
-                        onClick={() => dispatch(SetIsMobileNavOpen(false))}
-                    />
-                </Box>
+                <div className='mobile-hamburger-btn'>
+                    <Box display={!isMobileNavOpen ? 'block' : 'none'}>
+                        <MenuIcon
+                            fontSize='large'
+                            onClick={() => dispatch(SetIsMobileNavOpen(true))}
+                        />
+                    </Box>
+                    <Box display={!isMobileNavOpen ? 'none' : 'block'}>
+                        <CloseIcon
+                            fontSize='large'
+                            onClick={() => dispatch(SetIsMobileNavOpen(false))}
+                        />
+                    </Box>
+                </div>
                 <Logo />
                 <MainNav />
                 <UserNav />
