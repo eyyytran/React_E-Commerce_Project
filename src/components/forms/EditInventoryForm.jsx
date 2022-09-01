@@ -3,6 +3,13 @@ import { useState } from 'react'
 import { deleteDoc, doc, setDoc } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
 import { useQueryClient, useMutation } from 'react-query'
+import TextField from '@mui/material/TextField'
+import FormControl from '@mui/material/FormControl'
+import InputLabel from '@mui/material/InputLabel'
+import InputAdornment from '@mui/material/InputAdornment'
+import OutlinedInput from '@mui/material/OutlinedInput'
+import Select, { SelectChangeEvent } from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 
 const EditInventoryForm = ({ product }) => {
     const [name, setName] = useState(product?.name || '')
@@ -74,99 +81,150 @@ const EditInventoryForm = ({ product }) => {
     return (
         <>
             <form className='edit-inventory-form'>
-                <input
-                    type='text'
-                    placeholder={product?.name}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    label='Product Name'
+                    variant='standard'
                     value={name}
                     onChange={e => setName(e.target.value)}
                 />
-                <select name='type' onChange={e => setType(e.target.value)}>
-                    <option>Select Type:</option>
-                    {productTypes.map(type => (
-                        <option key={type} value={type.toLowerCase()}>
-                            {type}
-                        </option>
-                    ))}
-                </select>
-                <input
-                    type='text'
-                    placeholder={product?.subtitle}
+                <FormControl fullWidth margin='normal'>
+                    <InputLabel id='admin-inventory-select'>
+                        Choose Product Type:
+                    </InputLabel>
+                    <Select
+                        labelId='admin-inventory-select-label'
+                        id='admin-inventory-select'
+                        value={type}
+                        label='type'
+                        onChange={e => setType(e.target.value)}
+                    >
+                        {productTypes.map(type => (
+                            <MenuItem key={type} value={type.toLowerCase()}>
+                                {type}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    label='Subtitle'
+                    variant='standard'
                     value={subtitle}
                     onChange={e => {
                         setSubtitle(e.target.value)
                     }}
                 />
-                <input
-                    type='text'
-                    placeholder={product?.description}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    label='Description'
+                    variant='standard'
                     value={description}
                     onChange={e => {
                         setDescription(e.target.value)
                     }}
                 />
-                <input
-                    type='text'
-                    placeholder={product?.actives}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    label='Featured Ingredients'
+                    variant='standard'
                     value={actives}
                     onChange={e => {
                         setActives(e.target.value)
                     }}
                 />
-                <input
-                    type='text'
-                    placeholder={product?.ingredients}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    variant='standard'
+                    label='All Ingredients'
                     value={ingredients}
                     onChange={e => {
                         setIngredients(e.target.value)
                     }}
                 />
-                <input
-                    type='text'
-                    placeholder={product?.usage}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    variant='standard'
+                    label='Directions'
                     value={usage}
                     onChange={e => {
                         setUsage(e.target.value)
                     }}
                 />
 
-                <input
-                    type='text'
-                    name='imageUrl'
-                    placeholder={product?.imageURL1}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    variant='standard'
+                    label='Primary Image'
                     value={imageURL1}
                     onChange={e => setImageURL1(e.target.value)}
                 />
-                <input
-                    type='text'
-                    name='imageUrl'
-                    placeholder={product?.imageURL2}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    variant='standard'
+                    label='Secondary Image'
                     value={imageURL2}
                     onChange={e => setImageURL2(e.target.value)}
                 />
-                <input
-                    type='text'
-                    name='imageUrl'
-                    placeholder={product?.imageURL3}
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-basic'
+                    variant='standard'
+                    label='Tertiary Image'
                     value={imageURL3}
                     onChange={e => setImageURL3(e.target.value)}
                 />
-                <input
-                    type='text'
-                    name='price'
-                    placeholder={product?.price}
-                    value={price}
-                    onChange={e => setPrice(e.target.value)}
-                />
-
-                <input
+                <FormControl fullWidth sx={{ m: 1 }}>
+                    <InputLabel htmlFor='outlined-adornment-amount'>
+                        Amount
+                    </InputLabel>
+                    <OutlinedInput
+                        id='outlined-adornment-amount'
+                        value={price}
+                        onChange={e => setPrice(e.target.value)}
+                        startAdornment={
+                            <InputAdornment position='start'>$</InputAdornment>
+                        }
+                        label='Amount'
+                    />
+                </FormControl>
+                <TextField
+                    fullWidth
+                    margin='normal'
+                    id='standard-number'
+                    label='Quantity in Stock'
                     type='number'
-                    name='quanity'
-                    placeholder={product?.qty}
                     value={qty}
                     onChange={e => setQty(e.target.value)}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    variant='standard'
                 />
-                <button onClick={handleEdit}>Edit</button>
-                <button onClick={handleDelete}>Delete</button>
+                <button className='primary-btn' onClick={handleEdit}>
+                    Edit
+                </button>
+                <button className='secondary-btn' onClick={handleDelete}>
+                    Delete
+                </button>
             </form>
             <div>
                 {editMutation.isLoading ? 'updating product' : ''}
