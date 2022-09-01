@@ -30,6 +30,20 @@ export const fetchCollectionByType = async param => {
     return products
 }
 
+export const fetchProductByName = async param => {
+    const products = []
+    const docs = query(
+        firestoreCollection(db, 'products'),
+        where('name', '==', param.toString())
+    )
+
+    const querySnapshot = await getDocs(docs)
+    querySnapshot.forEach(doc => {
+        products.push({ ...doc.data(), id: doc.id })
+    })
+    return products
+}
+
 export const fetchCollection = async collection => {
     const products = []
     const docs = query(

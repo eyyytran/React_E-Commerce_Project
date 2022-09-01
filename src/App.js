@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PrivateRoutes from './components/routeTypes/PrivateRoutes'
 import AdminRoutes from './components/routeTypes/AdminRoutes'
 import Cart from './layouts/Cart'
-import Footer from './layouts/Footer'
+
 import Home from './layouts/Home'
 import Navbar from './layouts/Navbar'
 import Collections from './layouts/Collections'
@@ -16,6 +16,8 @@ import Checkout from './layouts/Checkout'
 import './styles/App.css'
 import Banner from './components/nav/Banner'
 import MobileUserNav from './components/nav/MobileUserNav'
+import BestSellers from './components/collections/BestSellers'
+import ErrorPage from './layouts/ErrorPage'
 
 function App() {
     return (
@@ -24,7 +26,9 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
+                {/* <Route path='bestsellers' element={<BestSellers />} /> */}
                 <Route path='collections' element={<Collections />}>
+                    <Route path='bestsellers' element={<BestSellers />} />
                     <Route path=':collection' element={<Collection />} />
                 </Route>
                 <Route path='login' element={<Login />} />
@@ -37,18 +41,10 @@ function App() {
                 <Route element={<AdminRoutes />}>
                     <Route path='admin' element={<AdminSettings />} />
                 </Route>
-                <Route
-                    path='*'
-                    element={
-                        <main style={{ padding: '1rem' }}>
-                            <p>There is nothing here!</p>
-                        </main>
-                    }
-                />
+                <Route path='*' element={<ErrorPage />} />
             </Routes>
             <MobileUserNav />
             <Cart />
-            <Footer />
         </BrowserRouter>
     )
 }

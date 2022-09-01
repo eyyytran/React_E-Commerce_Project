@@ -19,11 +19,7 @@ const MainNav = () => {
                     BEST SELLERS
                 </a>
             </li>
-            <li className='main_nav_item'>
-                <a className='main_nav_link' href='*'>
-                    SKIN CONCIERGE
-                </a>
-            </li>
+
             <li className='main_nav_item'>
                 <a className='main_nav_link' href='*'>
                     OUR STORY

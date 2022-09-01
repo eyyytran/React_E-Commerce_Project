@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useQueryClient, useQuery } from 'react-query'
 import { fetchCollectionByType, fetchInventory } from '../utils/dbRequests'
-import { Grid } from '@mui/material'
 
 import ProductCard from './ProductCard'
 
@@ -34,25 +33,6 @@ const Collection = () => {
                 <h1>{params.collection.toUpperCase()}</h1>
             </div>
             <div className='collection'>
-                {/* <Grid
-                    container
-                    rowSpacing={1}
-                    columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 3 }}
-                    direction='row'
-                    justifyContent='space-around'
-                    alignItems='center'
-                >
-                    {data?.map(product => {
-                        return (
-                            <Grid item xs={6} sm={3} md={4} lg={2}>
-                                <ProductCard
-                                    product={product}
-                                    key={product.id}
-                                />
-                            </Grid>
-                        )
-                    })}
-                </Grid> */}
                 {data?.map(product => {
                     return <ProductCard product={product} key={product.id} />
                 })}

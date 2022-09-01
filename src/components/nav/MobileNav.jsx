@@ -24,11 +24,7 @@ const MobileNav = () => {
                         BEST SELLERS
                     </a>
                 </li>
-                <li className='mobile_nav_item'>
-                    <a className='main_nav_link' href='*'>
-                        SKIN CONCIERGE
-                    </a>
-                </li>
+
                 <li className='mobile_nav_item'>
                     <a className='main_nav_link' href='*'>
                         OUR STORY

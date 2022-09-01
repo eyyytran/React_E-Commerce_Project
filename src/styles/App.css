@@ -138,10 +138,12 @@ form small {
 }
 
 .featured-products {
+    width: 97vw;
     max-width: 760px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -327,6 +329,17 @@ form small {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.error-page {
+    text-align: center;
+    height: 100vh;
+}
+
+.error-page img {
+    width: 100vw;
+    height: auto;
+    object-fit: contain;
 }
 
 @media only screen and (min-width: 600px) {
