@@ -290,11 +290,12 @@ form small {
 .collections-container {
     height: 100%;
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
     padding-bottom: 3rem;
-    display: grid;
-    grid-template-rows: auto 1fr;
+    /* padding-left: 1rem; */
+    /* padding-right: 1rem;
+    */
+    /* display: grid;
+    grid-template-rows: auto 1fr; */
 }
 
 .collection-container h1 {
@@ -303,12 +304,27 @@ form small {
     margin-bottom: 20px;
 }
 
+.collection-container {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; */
+}
+
 .collection-header {
     margin-top: 1rem;
     margin-bottom: 1rem;
     background-image: url('../assets/purplewater.jpeg');
     z-index: -90;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collection {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
