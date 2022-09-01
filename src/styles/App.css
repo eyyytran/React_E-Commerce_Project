@@ -169,12 +169,12 @@ form small {
     top: 0;
     right: 0;
     width: 320px;
-    height: 100vh;
+    height: calc(100vh - var(--mobileBottomNavbarHeight));
     padding: 1rem;
     transform: translate(100%);
     transition: transform 0.3s ease-in-out;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .is-open .cart-contents {
@@ -193,11 +193,21 @@ form small {
     cursor: pointer;
 }
 
+.cart-item-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--borderColor);
+    border-bottom: 1px solid var(--borderColor);
+}
+
 .login,
 .account-container,
 .admin,
-.signup,
-.collections-container {
+.signup {
     height: 100%;
     width: 100%;
     padding: 1rem;
@@ -238,15 +248,34 @@ form small {
 }
 
 .collections-container {
+    height: 100%;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: grid;
     grid-template-rows: auto 1fr;
 }
 
 .collection-container h1 {
     text-align: center;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.collection-header {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-image: url('../assets/purplewater.jpeg');
+    z-index: -90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (min-width: 600px) {
+    .collection-header {
+        height: 80px;
+    }
 }
 
 @media only screen and (min-width: 900px) {
@@ -255,6 +284,15 @@ form small {
         padding-left: 2rem;
         padding-right: 2rem;
         margin-bottom: 20px;
+    }
+
+    .collection-header {
+        height: 200px;
+    }
+
+    .cart-contents,
+    .cart.is-open {
+        height: 100vh;
     }
 
     .sale-banner {

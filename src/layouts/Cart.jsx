@@ -59,13 +59,14 @@ const Cart = () => {
                 >
                     <CloseIcon />
                 </button>
-                <Link
-                    className='checkout-btn'
-                    to='/checkout'
-                    onClick={() => dispatch(SetIsCartOpen(false))}
-                >
-                    Check Out
-                </Link>
+                <button className='primary-btn'>
+                    <Link
+                        to='/checkout'
+                        onClick={() => dispatch(SetIsCartOpen(false))}
+                    >
+                        Check Out
+                    </Link>
+                </button>
             </div>
         </div>
     )

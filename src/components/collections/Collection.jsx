@@ -2,8 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useQueryClient, useQuery } from 'react-query'
 import { fetchCollectionByType, fetchInventory } from '../utils/dbRequests'
 import { Grid } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import Paper from '@mui/material/Paper'
+
 import ProductCard from './ProductCard'
 
 const Collection = () => {
@@ -31,7 +30,9 @@ const Collection = () => {
 
     return (
         <div className='collection-container'>
-            <h1>{params.collection.toUpperCase()}</h1>
+            <div className='collection-header'>
+                <h1>{params.collection.toUpperCase()}</h1>
+            </div>
             <div className='collection'>
                 <Grid
                     container

@@ -37,13 +37,12 @@ const ProductCard = ({ product }) => {
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
             >
-                <img src={product?.imageURL1} alt='product' />
-                <div
-                    className='product-overlay'
-                    style={!isHover ? { display: 'none' } : { display: 'flex' }}
-                >
-                    <button>Quick Shop</button>
-                </div>
+                <img
+                    src={product?.imageURL1}
+                    alt='product'
+                    onMouseEnter={e => (e.target.src = product?.imageURL2)}
+                    onMouseLeave={e => (e.target.src = product?.imageURL1)}
+                />
             </div>
             <div className='product-card-content'>
                 <div>
@@ -68,7 +67,7 @@ const ProductCard = ({ product }) => {
                     </div>
                 </button>
             </div>
-            <QuickShop />
+            {/* <QuickShop /> */}
         </div>
     )
 }

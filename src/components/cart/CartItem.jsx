@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { removeFromCart } from '../../redux'
-import '../../styles/CartItem.css'
+import '../../styles/cartItem.css'
 
 // const product = {
 //     id: product?.id,
