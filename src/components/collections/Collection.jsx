@@ -33,10 +33,17 @@ const Collection = () => {
         <div className='collection-container'>
             <h1>{params.collection.toUpperCase()}</h1>
             <div className='collection'>
-                <Grid container spacing={1}>
+                <Grid
+                    container
+                    rowSpacing={1}
+                    columnSpacing={{ xs: 1, sm: 2, md: 3, lg: 3 }}
+                    direction='row'
+                    justifyContent='space-around'
+                    alignItems='center'
+                >
                     {data?.map(product => {
                         return (
-                            <Grid item xs={6}>
+                            <Grid item xs={6} sm={3} md={4} lg={2}>
                                 <ProductCard
                                     product={product}
                                     key={product.id}

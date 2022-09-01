@@ -246,12 +246,7 @@ form small {
     text-align: center;
 }
 
-.collection {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: calc(var(--productCardHeight) * 2);
-    max-width: calc(var(--productCardWidth) * 2);
+@media only screen and (min-width: 600px) {
 }
 
 @media only screen and (min-width: 900px) {

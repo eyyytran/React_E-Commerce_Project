@@ -1,13 +1,15 @@
 .product-card {
     width: var(--productCardWidth);
-    margin: 5px;
     background: var(--gray);
+    border-radius: 5px;
 }
 
 .product-card img {
     height: var(--productCardImgHeight);
     width: var(--productCardWidth);
     object-fit: fill;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .product-card button {
@@ -65,4 +67,7 @@
     flex-direction: column;
     justify-content: flex-end;
     background-color: var(--overlay);
+}
+
+@media only screen and (min-width: 900px) {
 }

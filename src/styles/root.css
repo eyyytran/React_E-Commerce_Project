@@ -20,5 +20,8 @@
 @media only screen and (min-width: 900px) {
     :root {
         --navbarHeight: 55px;
+        --productCardWidth: 250px;
+        --productCardHeight: 380px;
+        --productCardImgHeight: 280px;
     }
 }

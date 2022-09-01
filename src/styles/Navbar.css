@@ -141,6 +141,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .mobile-user-nav {
@@ -152,14 +154,12 @@
         justify-content: space-around;
         align-items: center;
     }
+    .mobile-hamburger-btn {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 900px) {
-    .nav_container {
-        padding-left: 3rem;
-        padding-right: 3rem;
-    }
-
     .submenu {
         display: flex;
     }
@@ -168,10 +168,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .mobile-hamburger-btn {
-        display: none;
     }
 
     .mobile-navsub_container,
