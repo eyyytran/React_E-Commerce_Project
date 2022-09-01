@@ -73,7 +73,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
     }
 
     return (
-        <form>
+        <form className={!openForm ? 'hidden' : 'unhidden'}>
             <TextField
                 fullWidth
                 margin='normal'

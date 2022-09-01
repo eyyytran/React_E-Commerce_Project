@@ -201,6 +201,12 @@ form small {
     padding: 1rem;
 }
 
+.admin-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .account-container .header-container {
     display: flex;
     flex-direction: column;
