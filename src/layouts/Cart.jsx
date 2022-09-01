@@ -63,6 +63,7 @@ const Cart = () => {
                     <Link
                         to='/checkout'
                         onClick={() => dispatch(SetIsCartOpen(false))}
+                        style={{ color: 'var(--white)' }}
                     >
                         Check Out
                     </Link>

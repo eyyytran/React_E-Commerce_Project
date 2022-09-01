@@ -14,7 +14,7 @@ const CartCalculations = () => {
                     <p className='tax-mainheader'>Tax</p>
                     <p className='tax-subheader'>calculated at checkout</p>
                 </div>
-                <div className='tax'>--</div>
+                <div className='tax'>---</div>
             </div>
             <div className='shipping-container'>
                 <div className='shipping-header'>
