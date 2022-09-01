@@ -22,9 +22,8 @@ const Home = () => {
                 <div className='featured-banner'>
                     <h1>Protect the Skin You're In</h1>
                     <p>
-                        Our handpicked our favorite sunscreens that provide the
-                        best protection while leaving your skin glowy and
-                        smooth.
+                        Our handpicked sunscreens provide the best protection
+                        while leaving your skin glowy and smooth.
                     </p>
                     <button
                         className='primary-btn'
@@ -39,6 +38,19 @@ const Home = () => {
                             <ProductCard product={product} key={product.id} />
                         )
                     })}
+                </div>
+                <div className='featured-story'>
+                    <img
+                        src={require('../assets/pink_bottles.jpeg')}
+                        alt='pink items flatlay'
+                    />
+                    <div className='story-content'>
+                        <h1>Our Promise to You</h1>
+                        <p>
+                            We select products with your needs in mind. No fake
+                            reviews here. Only skincare nerds.{' '}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

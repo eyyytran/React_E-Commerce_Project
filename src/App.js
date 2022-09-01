@@ -18,6 +18,7 @@ import Banner from './components/nav/Banner'
 import MobileUserNav from './components/nav/MobileUserNav'
 import BestSellers from './components/collections/BestSellers'
 import ErrorPage from './layouts/ErrorPage'
+import Footer from './layouts/Footer'
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
             </Routes>
             <MobileUserNav />
             <Cart />
+            <Footer />
         </BrowserRouter>
     )
 }

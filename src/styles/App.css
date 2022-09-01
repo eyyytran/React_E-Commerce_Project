@@ -147,6 +147,21 @@ form small {
     gap: 20px;
 }
 
+.featured-story {
+    padding-top: 1rem;
+}
+
+.featured-story img {
+    width: 100vw;
+    height: 200px;
+    object-fit: cover;
+}
+
+.story-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 .cart {
     position: fixed;
     top: 0;
@@ -293,24 +308,12 @@ form small {
     height: 100%;
     width: 100%;
     padding-bottom: 3rem;
-    /* padding-left: 1rem; */
-    /* padding-right: 1rem;
-    */
-    /* display: grid;
-    grid-template-rows: auto 1fr; */
 }
 
 .collection-container h1 {
     text-align: center;
     background-color: transparent;
     margin-bottom: 20px;
-}
-
-.collection-container {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center; */
 }
 
 .collection-header {
@@ -342,9 +345,42 @@ form small {
     object-fit: contain;
 }
 
+.footer {
+    background-color: #ccccff;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-left: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.disclaimer {
+    width: 30vw;
+}
+
 @media only screen and (min-width: 600px) {
     .collection-header {
         height: 80px;
+    }
+
+    .featured-story {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .story-content {
+        width: 400px;
+        margin-right: 0;
     }
 }
 
@@ -380,5 +416,27 @@ form small {
         background-color: var(--blue);
         font-size: 14px;
         padding: 5px;
+    }
+
+    .featured-story {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 3px;
+        padding-top: 0;
+        margin-top: 1rem;
+        width: 100vw;
+        height: 500px;
+    }
+
+    .story-content {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .featured-story img {
+        width: 100%;
+        height: inherit;
+        object-fit: cover;
+        border-radius: 3px;
     }
 }
