@@ -14,10 +14,13 @@ import Account from './layouts/Account'
 import AdminSettings from './layouts/AdminSettings'
 import Checkout from './layouts/Checkout'
 import './styles/App.css'
+import Banner from './components/nav/Banner'
+import MobileUserNav from './components/nav/MobileUserNav'
 
 function App() {
     return (
         <BrowserRouter>
+            <Banner />
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
@@ -43,6 +46,7 @@ function App() {
                     }
                 />
             </Routes>
+            <MobileUserNav />
             <Cart />
             <Footer />
         </BrowserRouter>

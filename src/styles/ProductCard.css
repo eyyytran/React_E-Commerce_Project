@@ -21,6 +21,7 @@
     margin: 5px;
     position: absolute;
     bottom: 5px;
+    border-radius: 3px;
 }
 
 .button-text,

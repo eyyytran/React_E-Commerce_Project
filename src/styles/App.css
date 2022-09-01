@@ -12,7 +12,7 @@ body {
     width: 100vw;
     overflow-y: auto;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     font-family: 'Source Sans Pro', sans-serif;
     color: var(--font);
     position: relative;
@@ -67,6 +67,10 @@ button {
     color: var(--white);
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+.sale-banner {
+    display: none;
 }
 
 .homepage {
@@ -130,5 +134,14 @@ button {
         padding-left: 2rem;
         padding-right: 2rem;
         margin-bottom: 20px;
+    }
+
+    .sale-banner {
+        display: block;
+        height: 30px;
+        text-align: center;
+        background-color: var(--blue);
+        font-size: 14px;
+        padding: 5px;
     }
 }
