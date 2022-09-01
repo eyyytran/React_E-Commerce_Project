@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import AccountForm from '../components/forms/AccountForm'
 import DeleteAccountForm from '../components/forms/DeleteAccountForm'
 import ReAuthForm from '../components/forms/ReAuthForm'
-import Shelfie from '../components/Shelfie'
+
 import { auth } from '../firebaseConfig'
 
 const Account = () => {

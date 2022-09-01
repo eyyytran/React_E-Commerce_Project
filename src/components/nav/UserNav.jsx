@@ -12,6 +12,7 @@ const UserNav = () => {
 
     const handleCartClick = e => {
         e.preventDefault()
+        e.stopPropagation()
         dispatch(ToggleIsCartOpen())
     }
 

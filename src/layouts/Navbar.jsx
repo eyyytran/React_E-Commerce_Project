@@ -9,7 +9,7 @@ import SubMenu from '../components/nav/SubMenu'
 import UserNav from '../components/nav/UserNav'
 import MobileNavSub from '../components/nav/MobileNavSub'
 import { SetIsMobileNavOpen, SetIsSubmenuOpen } from '../redux'
-import '../styles/Navbar.css'
+import '../styles/navbar.css'
 
 const Navbar = () => {
     const dispatch = useDispatch()

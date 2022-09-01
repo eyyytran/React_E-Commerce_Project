@@ -194,7 +194,8 @@ form small {
 }
 
 .login,
-.account-container {
+.account-container,
+.admin {
     height: 100%;
     width: 100%;
     padding: 1rem;

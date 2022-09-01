@@ -4,7 +4,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined'
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined'
 import SearchIcon from '@mui/icons-material/Search'
-import '../../styles/Navbar.css'
+import '../../styles/navbar.css'
 
 const MobileUserNav = () => {
     const dispatch = useDispatch()
