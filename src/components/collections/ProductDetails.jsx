@@ -1,0 +1,112 @@
+import { useParams } from 'react-router-dom'
+import { useQueryClient, useQuery } from 'react-query'
+import { fetchProductById } from '../utils/dbRequests'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart, SetIsCartOpen } from '../../redux'
+
+const ProductDetails = () => {
+    const [QTY, setQTY] = useState(1)
+    let params = useParams()
+    const dispatch = useDispatch()
+    const queryClient = useQueryClient()
+    const { data, error, isError, isLoading } = useQuery(
+        [`product-${params.productId}`],
+        () => fetchProductById(params.productId)
+    )
+
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
+    if (isError) {
+        return <div>Error: {error.message}</div>
+    }
+
+    const productToBuy = {
+        id: data?.id,
+        name: data?.name,
+        price: parseFloat(data?.price),
+        img: data?.imageURL1,
+        qtyToBuy: QTY,
+    }
+
+    const handleChange = e => {
+        setQTY(e.target.value)
+    }
+
+    const handleClick = e => {
+        e.stopPropagation()
+        dispatch(addToCart(productToBuy))
+        dispatch(SetIsCartOpen(true))
+    }
+
+    return (
+        <div>
+            <div className='product-page-header'>
+                <div className='name'>{data?.name}</div>
+                <div className='price'>{data?.price}</div>
+            </div>
+            <div className='product-images'>
+                <div className='main-image'>
+                    <img src={data?.imageURL1} alt='product' />
+                </div>
+                <div className='sub-images'>
+                    <img src={data?.imageURL1} alt='product' />
+                    <img src={data?.imageURL2} alt='product' />
+                    <img src={data?.imageURL3} alt='product' />
+                </div>
+                <div className='product-details-container'>
+                    <div className='subtitle'>{data?.subtitle}</div>
+                    <div className='description'>{data?.description}</div>
+                    <div className='add-to-cart'>
+                        <FormControl sx={{ m: 1, minWidth: 80 }}>
+                            <InputLabel id='demo-simple-select-label'>
+                                QTY
+                            </InputLabel>
+                            <Select
+                                labelId='demo-simple-select-label'
+                                id='demo-simple-select'
+                                value={QTY}
+                                label='Age'
+                                onChange={handleChange}
+                            >
+                                <MenuItem value={1}>1</MenuItem>
+                                <MenuItem value={2}>2</MenuItem>
+                                <MenuItem value={3}>3</MenuItem>
+                                <MenuItem value={4}>4</MenuItem>
+                                <MenuItem value={5}>5</MenuItem>
+                            </Select>
+                        </FormControl>
+                        <button
+                            disabled={data?.qty === 0 ? true : false}
+                            style={
+                                data?.qty === 0
+                                    ? { placeContent: 'center' }
+                                    : {}
+                            }
+                        >
+                            <div className='button-text' onClick={handleClick}>
+                                {data?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
+                            </div>
+                            <div
+                                className={
+                                    data?.qty === 0
+                                        ? 'product-price hidden'
+                                        : 'product-price'
+                                }
+                            >
+                                ${data?.price}
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default ProductDetails

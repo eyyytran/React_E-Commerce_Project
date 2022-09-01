@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart, SetIsCartOpen } from '../../redux'
-import { styled } from '@mui/material/styles'
-import Paper from '@mui/material/Paper'
-import QuickShop from './QuickShop'
+import { useNavigate } from 'react-router-dom'
+
 import '../../styles/productCard.css'
 
 const ProductCard = ({ product }) => {
     const [isHover, setIsHover] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const productToBuy = {
         id: product?.id,
         name: product?.name,
@@ -22,16 +22,13 @@ const ProductCard = ({ product }) => {
         dispatch(SetIsCartOpen(true))
     }
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    }))
+    const handleCardClick = e => {
+        e.stopPropagation()
+        navigate(`/product/${product.id}`)
+    }
 
     return (
-        <div className='product-card'>
+        <div className='product-card' onClick={handleCardClick}>
             <div
                 className='product-image-container'
                 onMouseEnter={() => setIsHover(true)}
@@ -67,7 +64,6 @@ const ProductCard = ({ product }) => {
                     </div>
                 </button>
             </div>
-            {/* <QuickShop /> */}
         </div>
     )
 }

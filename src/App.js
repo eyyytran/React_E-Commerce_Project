@@ -19,6 +19,8 @@ import MobileUserNav from './components/nav/MobileUserNav'
 import BestSellers from './components/collections/BestSellers'
 import ErrorPage from './layouts/ErrorPage'
 import Footer from './layouts/Footer'
+import ProductPage from './components/collections/ProductPage'
+import ProductDetails from './components/collections/ProductDetails'
 
 function App() {
     return (
@@ -27,11 +29,14 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
-                {/* <Route path='bestsellers' element={<BestSellers />} /> */}
                 <Route path='collections' element={<Collections />}>
                     <Route path='bestsellers' element={<BestSellers />} />
                     <Route path=':collection' element={<Collection />} />
                 </Route>
+                <Route path='product' element={<ProductPage />}>
+                    <Route path=':productId' element={<ProductDetails />} />
+                </Route>
+
                 <Route path='login' element={<Login />} />
                 <Route path='signup' element={<Signup />} />
                 <Route path='concierge' element={<Concierge />} />

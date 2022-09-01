@@ -3,6 +3,8 @@ import {
     collection as firestoreCollection,
     query,
     where,
+    doc,
+    getDoc,
 } from 'firebase/firestore'
 import { updateProfile, updateEmail, updatePassword } from 'firebase/auth'
 import { db } from '../../firebaseConfig'
@@ -30,18 +32,11 @@ export const fetchCollectionByType = async param => {
     return products
 }
 
-export const fetchProductByName = async param => {
-    const products = []
-    const docs = query(
-        firestoreCollection(db, 'products'),
-        where('name', '==', param.toString())
-    )
-
-    const querySnapshot = await getDocs(docs)
-    querySnapshot.forEach(doc => {
-        products.push({ ...doc.data(), id: doc.id })
-    })
-    return products
+export const fetchProductById = async param => {
+    let product = {}
+    const docRef = doc(db, 'products', param)
+    const docSnap = await getDoc(docRef)
+    return (product = { ...docSnap.data(), id: param })
 }
 
 export const fetchCollection = async collection => {
