@@ -292,6 +292,7 @@ form small {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 3rem;
     display: grid;
     grid-template-rows: auto 1fr;
 }
@@ -332,6 +333,10 @@ form small {
 
     .collection-header {
         height: 200px;
+    }
+
+    .collection {
+        padding-top: 1rem;
     }
 
     .cart-contents,
