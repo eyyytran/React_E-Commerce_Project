@@ -19,10 +19,9 @@ const Account = () => {
                 <div className='greeting'>
                     <h1>Hello, {user.displayName}</h1>
                 </div>
-                <button onClick={handleLogout}>Sign Out</button>
-            </div>
-            <div className='shelfie-container'>
-                <Shelfie />
+                <button className='primary-btn' onClick={handleLogout}>
+                    Sign Out
+                </button>
             </div>
             <div
                 className={

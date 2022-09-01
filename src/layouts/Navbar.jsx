@@ -1,19 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux'
+import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
+import { Box } from '@mui/material'
 import Logo from '../components/nav/Logo'
 import MainNav from '../components/nav/MainNav'
 import MobileNav from '../components/nav/MobileNav'
 import SubMenu from '../components/nav/SubMenu'
 import UserNav from '../components/nav/UserNav'
-import {
-    SetIsMobileNavOpen,
-    SetIsSubmenuOpen,
-    SetIsMobileSubOpen,
-} from '../redux'
-import MenuIcon from '@mui/icons-material/Menu'
-import CloseIcon from '@mui/icons-material/Close'
-import { Box } from '@mui/material'
-import '../styles/navbar.css'
 import MobileNavSub from '../components/nav/MobileNavSub'
+import { SetIsMobileNavOpen, SetIsSubmenuOpen } from '../redux'
+import '../styles/Navbar.css'
 
 const Navbar = () => {
     const dispatch = useDispatch()

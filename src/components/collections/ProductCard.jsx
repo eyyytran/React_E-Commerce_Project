@@ -14,7 +14,8 @@ const ProductCard = ({ product }) => {
         img: product?.imageURL1,
         qtyToBuy: 1,
     }
-    const handleClick = () => {
+    const handleClick = e => {
+        e.stopPropagation()
         dispatch(addToCart(productToBuy))
         dispatch(SetIsCartOpen(true))
     }

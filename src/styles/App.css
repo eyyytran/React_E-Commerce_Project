@@ -5,12 +5,16 @@ font-family: 'Source Serif Pro', serif; */
 
 @import './root.css';
 
+html,
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100vw;
     overflow-y: auto;
+}
+
+body {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     font-family: 'Source Sans Pro', sans-serif;
@@ -46,6 +50,35 @@ button {
     cursor: pointer;
 }
 
+input {
+    line-height: 1em;
+    border-color: var(--borderColor);
+    border-style: solid;
+    border-width: 0 0 1px;
+    height: 2rem;
+    width: 100%;
+    margin: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+form button {
+    margin: 10px;
+}
+
+form small {
+    color: red;
+}
+
+.success-text {
+    color: green;
+}
+
 .hidden {
     display: none;
 }
@@ -67,6 +100,16 @@ button {
     color: var(--white);
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+.secondary-btn {
+    height: var(--primarybtnHeight);
+    width: var(--primarybtnWidth);
+    background-color: var(--white);
+    color: var(--black);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--black);
 }
 
 .sale-banner {
@@ -102,19 +145,41 @@ button {
 }
 
 .cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 0;
+    overflow-y: scroll;
+    transition: background-color 0.3s ease-in-out;
     z-index: 9003;
+}
+
+.cart.is-open {
+    width: 100vw;
+    height: calc(100vh - var(--mobileBottomNavbarHeight));
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.cart-contents {
+    background-color: var(--white);
     position: fixed;
     top: 0;
     right: 0;
     width: 320px;
+    height: 100vh;
+    padding: 1rem;
     transform: translate(100%);
-    transition: transform 0.2s;
-    background-color: aquamarine;
-    overflow-y: scroll;
+    transition: transform 0.3s ease-in-out;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.cart.is-open {
+.is-open .cart-contents {
     transform: translate(0);
+    transition: transform 0.3s ease-in-out;
 }
 
 .cart .close-cart-btn-container {
@@ -126,6 +191,28 @@ button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.login,
+.account-container {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+}
+
+.account-container .header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.delete-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 @media only screen and (min-width: 900px) {

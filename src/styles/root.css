@@ -2,7 +2,7 @@
     --font: black;
     --white: #ffffff;
     --black: #000000;
-    --gray: rgb(241, 241, 241, 0.5);
+    --gray: rgb(241, 241, 241, 0.8);
     --blue: #d6e0ee;
     --overlay: #fffc;
     --borderColor: rgba(0, 0, 0, 0.35);
@@ -14,6 +14,7 @@
     --productCardWidth: 175px;
     --productCardHeight: 380px;
     --productCardImgHeight: 230px;
+    --mobileBottomNavbarHeight: 75px;
 }
 
 @media only screen and (min-width: 900px) {

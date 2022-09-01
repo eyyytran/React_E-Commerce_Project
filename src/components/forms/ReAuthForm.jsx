@@ -39,7 +39,9 @@ const ReAuthForm = ({ setIsAuth }) => {
                     onChange={e => setPassword(e.target.value)}
                 />
                 <small>{error}</small>
-                <button onClick={handleReAuth}>Confirm Password</button>
+                <button className='primary-btn' onClick={handleReAuth}>
+                    Confirm Password
+                </button>
             </form>
         </>
     )

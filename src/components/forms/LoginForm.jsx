@@ -53,13 +53,13 @@ const LoginForm = () => {
                 onChange={e => setEmail(e.target.value)}
             />
             <input
-                type='text'
+                type='password'
                 name='password'
                 placeholder='Password'
                 onChange={e => setPassword(e.target.value)}
             />
             <small className={error === '' ? 'hidden' : 'error'}>{error}</small>
-            <button>Login</button>
+            <button className='primary-btn'>Login</button>
         </form>
     )
 }

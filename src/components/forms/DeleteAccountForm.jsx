@@ -18,7 +18,9 @@ const DeleteAccountForm = () => {
     }
     return (
         <div className='delete-btn-container'>
-            <button onClick={handleDelete}>Delete Account</button>
+            <button className='secondary-btn' onClick={handleDelete}>
+                Delete Account
+            </button>
             <small>{error}</small>
         </div>
     )

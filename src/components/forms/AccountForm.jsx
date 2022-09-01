@@ -94,22 +94,24 @@ const AccountForm = () => {
                 onChange={e => setEmail(e.target.value)}
             />
             <input
-                type='text'
+                type='password'
                 name='new'
                 value={password}
                 placeholder='New Password'
                 onChange={e => setPassword(e.target.value)}
             />
             <input
-                type='text'
+                type='password'
                 name='confirm'
                 value={confirm}
                 placeholder='Confirm New Password'
                 onChange={e => setConfirm(e.target.value)}
             />
             <small>{error}</small>
-            <small>{success}</small>
-            <button onClick={handleSubmit}>Update Profile</button>
+            <small className='success-text'>{success}</small>
+            <button className='primary-btn' onClick={handleSubmit}>
+                Update Profile
+            </button>
         </form>
     )
 }
