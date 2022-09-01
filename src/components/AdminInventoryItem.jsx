@@ -2,7 +2,7 @@ import { useState } from 'react'
 import EditInventoryForm from './forms/EditInventoryForm'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
-import '../styles/InventoryItem.css'
+import '../styles/inventoryItem.css'
 
 const AdminInventoryItem = ({ product }) => {
     const [active, setActive] = useState(false)

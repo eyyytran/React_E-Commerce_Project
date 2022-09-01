@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../../firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { isRequired, isSecure, isEmail } from '../utils/validations'
 
 const SignupForm = () => {
     const [email, setEmail] = useState('')
@@ -12,22 +13,6 @@ const SignupForm = () => {
     const [confirmError, setConfirmError] = useState('')
 
     const navigate = useNavigate()
-
-    const isRequired = value => (value === '' ? false : true)
-
-    const isEmail = () => {
-        const re = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
-        console.log(re.test(email))
-        return re.test(email)
-    }
-
-    const isSecure = () => {
-        const re = new RegExp(
-            '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,50}$'
-        )
-
-        return re.test(password)
-    }
 
     const validateEmail = () => {
         let valid = false
@@ -116,7 +101,9 @@ const SignupForm = () => {
             <small className={confirmError === '' ? 'hidden' : 'error'}>
                 {confirmError}
             </small>
-            <button type='submit'>Register</button>
+            <button className='primary-btn' type='submit'>
+                Register
+            </button>
         </form>
     )
 }
