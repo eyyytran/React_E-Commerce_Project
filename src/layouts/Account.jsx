@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import AccountForm from '../components/forms/AccountForm'
-import DeleteAccountForm from '../components/forms/DeleteAccountForm'
-import ReAuthForm from '../components/forms/ReAuthForm'
-
+import AccountForm from '../components/forms/account/AccountForm'
+import DeleteAccountButton from '../components/forms/account/DeleteAccountButton'
+import ReAuthForm from '../components/forms/account/ReAuthForm'
 import { auth } from '../firebaseConfig'
+import '../styles/Account.css'
 
 const Account = () => {
     const [isAuth, setIsAuth] = useState(false)
@@ -16,9 +16,7 @@ const Account = () => {
     return (
         <div className='account-container'>
             <div className='header-container'>
-                <div className='greeting'>
-                    <h1>Hello, {user.displayName}</h1>
-                </div>
+                <h1>Hello, {user.displayName}</h1>
                 <button className='primary-btn' onClick={handleLogout}>
                     Sign Out
                 </button>
@@ -31,14 +29,10 @@ const Account = () => {
                 <ReAuthForm setIsAuth={setIsAuth} />
             </div>
             <div
-                className={
-                    !isAuth
-                        ? 'account-settings-container hidden'
-                        : 'account-settings-container'
-                }
+                className={`account-settings-container ${!isAuth && 'hidden'}`}
             >
-                <AccountForm />
-                <DeleteAccountForm />
+                <AccountForm isAuth={isAuth} />
+                <DeleteAccountButton isAuth={isAuth} />
             </div>
         </div>
     )

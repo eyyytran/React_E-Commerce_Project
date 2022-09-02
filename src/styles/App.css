@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&family=Source+Serif+Pro:wght@300&display=swap');
-
-/* font-family: 'Source Sans Pro', sans-serif;
-font-family: 'Source Serif Pro', serif; */
-
 @import './root.css';
 
 html,
@@ -11,6 +7,7 @@ body {
     padding: 0;
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
@@ -18,7 +15,6 @@ body {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     font-family: 'Source Sans Pro', sans-serif;
-    color: var(--font);
     position: relative;
 }
 
@@ -37,7 +33,7 @@ li {
 
 a {
     text-decoration: none;
-    color: var(--font);
+    color: var(--black);
 }
 
 h1 {
@@ -116,8 +112,13 @@ input:focus {
     border: 2px solid var(--black);
 }
 
-.sale-banner {
-    display: none;
+.danger-btn {
+    height: var(--primarybtnHeight);
+    width: var(--primarybtnWidth);
+    background-color: var(--danger);
+    color: var(--white);
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .homepage {
@@ -269,7 +270,6 @@ input:focus {
 }
 
 .login,
-.account-container,
 .admin,
 .signup,
 .checkout-container {
@@ -281,7 +281,6 @@ input:focus {
 .checkout-item-container {
     display: flex;
     flex-wrap: wrap;
-
     justify-content: center;
 }
 
@@ -289,26 +288,6 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.account-container .header-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-}
-
-.account-container {
-    display: grid;
-    grid-template-rows: auto 1fr;
-}
-
-.delete-btn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
 }
 
 .admin-inventory-firstrow {
@@ -384,8 +363,7 @@ input:focus {
 
 .footer {
     width: 100vw;
-    background-color: #ccccff;
-
+    background-color: var(--footerBgColor);
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -394,7 +372,7 @@ input:focus {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 80px;
+    height: var(--footerHeight);
 }
 
 .footer p {
@@ -405,21 +383,9 @@ input:focus {
     width: 30vw;
 }
 
-.account-container,
 .login,
 .signup {
     height: calc(100vh - var(--navbarHeight));
-}
-
-.reauth-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.reauth-container.hidden {
-    display: none;
 }
 
 @media only screen and (min-width: 600px) {
@@ -437,15 +403,6 @@ input:focus {
     .story-content {
         width: 400px;
         margin-right: 0;
-    }
-
-    .reauth-container {
-        max-width: 600px;
-        margin: 1rem;
-    }
-
-    .account-container .header-container {
-        align-items: flex-start;
     }
 }
 
@@ -488,15 +445,6 @@ input:focus {
     .cart-contents,
     .cart.is-open {
         height: 100vh;
-    }
-
-    .sale-banner {
-        display: block;
-        height: 30px;
-        text-align: center;
-        background-color: var(--blue);
-        font-size: 14px;
-        padding: 5px;
     }
 
     .featured-story {

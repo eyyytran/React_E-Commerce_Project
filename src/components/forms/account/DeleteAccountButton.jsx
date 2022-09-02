@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteUser, getAuth } from 'firebase/auth'
 
-const DeleteAccountForm = () => {
+const DeleteAccountForm = ({ isAuth }) => {
     const [error, setError] = useState('')
     const navigate = useNavigate()
     const auth = getAuth()
@@ -17,12 +17,17 @@ const DeleteAccountForm = () => {
         }
     }
     return (
-        <div className='delete-btn-container'>
-            <button className='secondary-btn' onClick={handleDelete}>
+        <>
+            <button
+                id='delete-account-btn'
+                className='danger-btn'
+                onClick={handleDelete}
+                disabled={!isAuth}
+            >
                 Delete Account
             </button>
             <small>{error}</small>
-        </div>
+        </>
     )
 }
 

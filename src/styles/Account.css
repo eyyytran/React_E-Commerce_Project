@@ -1,0 +1,91 @@
+.account-container {
+    height: calc(
+        100vh - var(--navbarHeight) - var(--footerHeight) -
+            var(--mobileBottomNavbarHeight)
+    );
+    padding: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.account-container button {
+    width: 100%;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.account-container .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account-container .header-container h1 {
+    margin: 0;
+}
+
+.account-container .header-container button {
+    margin-bottom: 0;
+}
+
+.reauth-container h3 {
+    text-align: center;
+}
+
+.reauth-container.hidden {
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .account-container {
+        height: calc(
+            100vh - var(--navbarHeight) - var(--footerHeight) -
+                var(--promoBannerHeight)
+        );
+        padding: 15px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .account-container button {
+        width: var(--primarybtnWidth);
+        margin: 0;
+    }
+
+    .account-container .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .reauth-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .reauth-container form .MuiFormControl-root {
+        margin-bottom: 15px;
+    }
+
+    .account-settings-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .account-settings-container button {
+        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .account-settings-container .primary-btn:disabled,
+    .account-settings-container .danger-btn:disabled {
+        background-color: var(--disabledBtnBgColor);
+    }
+}

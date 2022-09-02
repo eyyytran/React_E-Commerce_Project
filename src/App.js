@@ -14,7 +14,7 @@ import Account from './layouts/Account'
 import AdminSettings from './layouts/AdminSettings'
 import Checkout from './layouts/Checkout'
 import './styles/App.css'
-import Banner from './components/nav/Banner'
+import Promo from './components/nav/Promo'
 import MobileUserNav from './components/nav/MobileUserNav'
 import BestSellers from './components/collections/BestSellers'
 import ErrorPage from './layouts/ErrorPage'
@@ -26,7 +26,7 @@ import About from './layouts/About'
 function App() {
     return (
         <BrowserRouter>
-            <Banner />
+            <Promo />
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />

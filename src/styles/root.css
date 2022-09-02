@@ -1,8 +1,9 @@
 :root {
-    --font: black;
-    --white: #ffffff;
-    --black: #000000;
+    --white: #fff;
+    --black: #000;
+    --danger: rgb(226, 27, 27);
     --gray: rgb(241, 241, 241, 0.8);
+    --disabledBtnBgColor: #aaa;
     --blue: #d6e0ee;
     --overlay: #fffc;
     --borderColor: rgba(0, 0, 0, 0.35);
@@ -17,6 +18,9 @@
     --mobileBottomNavbarHeight: 75px;
     --cartItemHeight: 220px;
     --cartItemWidth: 138px;
+    --footerHeight: 80px;
+    --footerBgColor: #ccccff;
+    --promoBannerHeight: 30px;
 }
 
 @media only screen and (min-width: 900px) {

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { ToggleIsCartOpen } from '../../redux'
-
 import SearchIcon from '@mui/icons-material/Search'
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined'
@@ -18,15 +18,15 @@ const UserNav = () => {
 
     return (
         <div className='global_user_nav'>
-            <a href='/account'>
+            <Link to='/account'>
                 <PermIdentityIcon />
-            </a>
-            <a href='/admin' className={!isAdmin ? 'hidden' : 'unhidden'}>
+            </Link>
+            <Link to='/admin' className={!isAdmin ? 'hidden' : 'unhidden'}>
                 <AdminPanelSettingsOutlinedIcon />
-            </a>
-            <a href='*' onClick={handleCartClick}>
+            </Link>
+            <button onClick={handleCartClick}>
                 <ShoppingBagOutlinedIcon />
-            </a>
+            </button>
         </div>
     )
 }

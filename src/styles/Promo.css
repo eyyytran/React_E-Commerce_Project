@@ -1,0 +1,14 @@
+.promo-banner {
+    display: none;
+}
+
+@media only screen and (min-width: 900px) {
+    .promo-banner {
+        display: block;
+        height: var(--promoBannerHeight);
+        text-align: center;
+        background-color: var(--blue);
+        font-size: 14px;
+        padding: 5px;
+    }
+}

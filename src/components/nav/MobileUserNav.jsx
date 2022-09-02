@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { ToggleIsCartOpen } from '../../redux'
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined'
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined'
 import SearchIcon from '@mui/icons-material/Search'
-import '../../styles/navbar.css'
+import '../../styles/Navbar.css'
 
 const MobileUserNav = () => {
     const dispatch = useDispatch()
@@ -19,15 +20,15 @@ const MobileUserNav = () => {
     return (
         <div className='mobile-user-nav'>
             <div className='mobile-user-btn'>
-                <a href='/account'>
+                <Link to='/account'>
                     <PermIdentityIcon fontSize='large' />
-                </a>
+                </Link>
                 <div>Account</div>
             </div>
             <div className='mobile-user-btn'>
-                <a href='*' onClick={handleCartClick}>
+                <button onClick={handleCartClick}>
                     <ShoppingBagOutlinedIcon fontSize='large' />
-                </a>
+                </button>
                 <div>Bag</div>
             </div>
             <div
@@ -35,9 +36,9 @@ const MobileUserNav = () => {
                     isAdmin ? 'mobile-user-btn' : 'mobile-user-btn hidden'
                 }
             >
-                <a href='/admin'>
+                <Link to='/admin'>
                     <AdminPanelSettingsOutlinedIcon fontSize='large' />
-                </a>
+                </Link>
                 <div>Admin</div>
             </div>
         </div>

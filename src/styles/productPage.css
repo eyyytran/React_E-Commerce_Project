@@ -1,5 +1,3 @@
-@import './root.css';
-
 .product-page {
     display: flex;
     flex-direction: column;

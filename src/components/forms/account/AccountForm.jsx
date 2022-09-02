@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { getAuth, updatePassword } from 'firebase/auth'
-import { isRequired, isEmail, isSecure } from '../utils/validations'
+import { getAuth } from 'firebase/auth'
 import TextField from '@mui/material/TextField'
+import { isRequired, isEmail, isSecure } from '../../utils/validations'
 import {
     updateDisplayName,
     updateUserEmail,
     updateUserPassword,
-} from '../utils/dbRequests'
+} from '../../utils/dbRequests'
 
-const AccountForm = () => {
+const AccountForm = ({ isAuth }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -79,10 +79,10 @@ const AccountForm = () => {
     }
 
     return (
-        <form action=''>
+        <form>
             <TextField
                 sx={{
-                    width: { sm: 200, md: 300 },
+                    width: { xs: '100%', md: 300 },
                 }}
                 margin='normal'
                 variant='standard'
@@ -91,10 +91,11 @@ const AccountForm = () => {
                 value={name}
                 placeholder='Set Display Name'
                 onChange={e => setName(e.target.value)}
+                disabled={!isAuth}
             />
             <TextField
                 sx={{
-                    width: { sm: 200, md: 300 },
+                    width: { xs: '100%', md: 300 },
                 }}
                 margin='normal'
                 variant='standard'
@@ -103,10 +104,11 @@ const AccountForm = () => {
                 value={email}
                 placeholder='Set New Email'
                 onChange={e => setEmail(e.target.value)}
+                disabled={!isAuth}
             />
             <TextField
                 sx={{
-                    width: { sm: 200, md: 300 },
+                    width: { xs: '100%', md: 300 },
                 }}
                 margin='normal'
                 variant='standard'
@@ -115,10 +117,11 @@ const AccountForm = () => {
                 value={password}
                 placeholder='New Password'
                 onChange={e => setPassword(e.target.value)}
+                disabled={!isAuth}
             />
             <TextField
                 sx={{
-                    width: { sm: 200, md: 300 },
+                    width: { xs: '100%', md: 300 },
                 }}
                 margin='normal'
                 variant='standard'
@@ -127,10 +130,15 @@ const AccountForm = () => {
                 value={confirm}
                 placeholder='Confirm New Password'
                 onChange={e => setConfirm(e.target.value)}
+                disabled={!isAuth}
             />
             <small>{error}</small>
             <small className='success-text'>{success}</small>
-            <button className='primary-btn' onClick={handleSubmit}>
+            <button
+                className='primary-btn'
+                onClick={handleSubmit}
+                disabled={!isAuth}
+            >
                 Update Profile
             </button>
         </form>

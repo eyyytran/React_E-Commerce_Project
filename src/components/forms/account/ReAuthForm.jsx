@@ -33,6 +33,7 @@ const ReAuthForm = ({ setIsAuth }) => {
 
     return (
         <>
+            <h3>Confirm password to make changes to account.</h3>
             <form>
                 <TextField
                     error={error}
@@ -44,6 +45,9 @@ const ReAuthForm = ({ setIsAuth }) => {
                     helperText={errorMessage}
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    sx={{
+                        width: { xs: '100%', md: 300 },
+                    }}
                 />
                 <button className='primary-btn' onClick={handleReAuth}>
                     Confirm Password
