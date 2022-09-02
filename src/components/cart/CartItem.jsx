@@ -2,14 +2,6 @@ import { useDispatch } from 'react-redux'
 import { removeFromCart } from '../../redux'
 import '../../styles/cartItem.css'
 
-// const product = {
-//     id: product?.id,
-//     name: product?.name,
-//     img: product?.imageURL1,
-//     price: product?.price,
-//     qtyToBuy: 1,
-// }
-
 const CartItem = ({ product }) => {
     const dispatch = useDispatch()
     return (
