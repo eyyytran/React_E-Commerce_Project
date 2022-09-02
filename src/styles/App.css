@@ -451,6 +451,7 @@ input:focus {
 
 @media only screen and (min-width: 760px) {
     .checkout-container {
+        height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
         display: flex;
         flex-direction: column;
         justify-content: flex-start;

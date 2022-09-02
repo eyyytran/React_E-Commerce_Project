@@ -41,7 +41,13 @@ const ProductDetails = () => {
         qtyToBuy: QTY,
     }
 
-    const qtyAvailable = Array.from(String(data?.qty), Number)
+    const qtyAvailable = qty => {
+        const result = []
+        for (let i = 1; i < qty + 1; i++) result.push(i)
+        return result
+    }
+
+    const qtyToPrint = qtyAvailable(data?.qty)
 
     const handleChange = e => {
         setQTY(e.target.value)
@@ -105,7 +111,7 @@ const ProductDetails = () => {
                                     label='Age'
                                     onChange={handleChange}
                                 >
-                                    {qtyAvailable.map(qty => {
+                                    {qtyToPrint.map(qty => {
                                         return (
                                             <MenuItem value={parseInt(qty)}>
                                                 {qty}
