@@ -75,7 +75,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
     return (
         <form className={!openForm ? 'hidden' : 'unhidden'}>
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 label='Product Name'
@@ -83,7 +83,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 value={name}
                 onChange={e => setName(e.target.value)}
             />
-            <FormControl fullWidth margin='normal'>
+            <FormControl sx={{ width: { sm: 200, md: 300 } }} margin='normal'>
                 <InputLabel id='admin-inventory-select'>
                     Choose Product Type:
                 </InputLabel>
@@ -103,7 +103,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
             </FormControl>
 
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 label='Subtitle'
@@ -114,7 +114,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 }}
             />
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 label='Description'
@@ -125,7 +125,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 }}
             />
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 label='Featured Ingredients'
@@ -136,7 +136,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 }}
             />
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 variant='standard'
@@ -147,7 +147,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 }}
             />
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 variant='standard'
@@ -159,7 +159,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
             />
 
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 variant='standard'
@@ -168,7 +168,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 onChange={e => setImageURL1(e.target.value)}
             />
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 variant='standard'
@@ -177,7 +177,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 onChange={e => setImageURL2(e.target.value)}
             />
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-basic'
                 variant='standard'
@@ -185,7 +185,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 value={imageURL3}
                 onChange={e => setImageURL3(e.target.value)}
             />
-            <FormControl fullWidth sx={{ m: 1 }}>
+            <FormControl sx={{ width: { sm: 200, md: 300 } }}>
                 <InputLabel htmlFor='outlined-adornment-amount'>
                     Amount
                 </InputLabel>
@@ -200,7 +200,7 @@ const AddInventoryForm = ({ openForm, setOpenForm }) => {
                 />
             </FormControl>
             <TextField
-                fullWidth
+                sx={{ width: { sm: 200, md: 300 } }}
                 margin='normal'
                 id='standard-number'
                 label='Quantity in Stock'

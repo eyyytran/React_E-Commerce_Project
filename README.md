@@ -16,3 +16,9 @@ This project is a skincare e-commerce website. It has two client flows: one for 
 ## Usage
 
 Clone this repo and run npm install. After that, you should be good to go! You will need your own Firebase Config and Paypal API key to run this website.
+
+## Preview
+
+![My Image](/src/assets/app-preview/Screen%20Shot%202022-09-02%20at%208.49.20%20AM.png)
+![My Image](/src/assets/app-preview/Screen%20Shot%202022-09-02%20at%208.50.06%20AM.png)
+![My Image](/src/assets/app-preview/Screen%20Shot%202022-09-02%20at%208.49.05%20AM.png)
