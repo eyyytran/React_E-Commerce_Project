@@ -8,6 +8,7 @@ import Select from '@mui/material/Select'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart, SetIsCartOpen } from '../../redux'
+import '../../styles/productPage.css'
 
 const ProductDetails = () => {
     const [QTY, setQTY] = useState(1)
@@ -18,6 +19,7 @@ const ProductDetails = () => {
         [`product-${params.productId}`],
         () => fetchProductById(params.productId)
     )
+    const [imageURL, setImageURL] = useState(data?.imageURL1)
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -45,19 +47,31 @@ const ProductDetails = () => {
     }
 
     return (
-        <div>
+        <div className='product-page'>
             <div className='product-page-header'>
-                <div className='name'>{data?.name}</div>
-                <div className='price'>{data?.price}</div>
+                <h2 className='name'>{data?.name}</h2>
+                <div className='price'>${data?.price}</div>
             </div>
             <div className='product-images'>
                 <div className='main-image'>
-                    <img src={data?.imageURL1} alt='product' />
+                    <img src={imageURL} alt='product' />
                 </div>
                 <div className='sub-images'>
-                    <img src={data?.imageURL1} alt='product' />
-                    <img src={data?.imageURL2} alt='product' />
-                    <img src={data?.imageURL3} alt='product' />
+                    <img
+                        src={data?.imageURL1}
+                        alt='product'
+                        onClick={e => setImageURL(data?.imageURL1)}
+                    />
+                    <img
+                        src={data?.imageURL2}
+                        alt='product'
+                        onClick={e => setImageURL(data?.imageURL2)}
+                    />
+                    <img
+                        src={data?.imageURL3}
+                        alt='product'
+                        onClick={e => setImageURL(data?.imageURL3)}
+                    />
                 </div>
                 <div className='product-details-container'>
                     <div className='subtitle'>{data?.subtitle}</div>
@@ -91,15 +105,6 @@ const ProductDetails = () => {
                         >
                             <div className='button-text' onClick={handleClick}>
                                 {data?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
-                            </div>
-                            <div
-                                className={
-                                    data?.qty === 0
-                                        ? 'product-price hidden'
-                                        : 'product-price'
-                                }
-                            >
-                                ${data?.price}
                             </div>
                         </button>
                     </div>
