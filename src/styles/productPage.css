@@ -42,3 +42,15 @@
     object-fit: fill;
     border-radius: 3px;
 }
+
+.product-details-container .subtitle {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.product-details-container .description {
+    margin-bottom: 1rem;
+}
+
+.product-details-container button {
+}

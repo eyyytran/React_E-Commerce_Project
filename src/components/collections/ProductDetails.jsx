@@ -36,6 +36,9 @@ const ProductDetails = () => {
         qtyToBuy: QTY,
     }
 
+    const qtyAvailable = Array.from(String(data?.qty), Number)
+    console.log(qtyAvailable)
+
     const handleChange = e => {
         setQTY(e.target.value)
     }
@@ -74,7 +77,9 @@ const ProductDetails = () => {
                     />
                 </div>
                 <div className='product-details-container'>
-                    <div className='subtitle'>{data?.subtitle}</div>
+                    <div className='subtitle'>
+                        {data?.subtitle.toUpperCase()}
+                    </div>
                     <div className='description'>{data?.description}</div>
                     <div className='add-to-cart'>
                         <FormControl sx={{ m: 1, minWidth: 80 }}>
@@ -88,11 +93,13 @@ const ProductDetails = () => {
                                 label='Age'
                                 onChange={handleChange}
                             >
-                                <MenuItem value={1}>1</MenuItem>
-                                <MenuItem value={2}>2</MenuItem>
-                                <MenuItem value={3}>3</MenuItem>
-                                <MenuItem value={4}>4</MenuItem>
-                                <MenuItem value={5}>5</MenuItem>
+                                {qtyAvailable.map(qty => {
+                                    return (
+                                        <MenuItem value={parseInt(qty)}>
+                                            {qty}
+                                        </MenuItem>
+                                    )
+                                })}
                             </Select>
                         </FormControl>
                         <button
