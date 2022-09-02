@@ -22,6 +22,10 @@
     font-size: 20px;
 }
 
+.product-details-container {
+    border-bottom: 1px solid var(--borderColor);
+}
+
 .main-image img {
     width: 354px;
     height: 354px;
@@ -52,5 +56,37 @@
     margin-bottom: 1rem;
 }
 
+.add-to-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .product-details-container button {
+    height: var(--primarybtnHeight);
+    width: calc(var(--primarybtnWidth) + 30px);
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.ingredients,
+.usage {
+    border-bottom: 1px solid var(--borderColor);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.ingredients-header,
+.usage-header {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingredients h2,
+.usage h2 {
+    margin: 0;
 }

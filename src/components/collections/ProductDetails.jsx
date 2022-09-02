@@ -8,10 +8,11 @@ import Select from '@mui/material/Select'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart, SetIsCartOpen } from '../../redux'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import '../../styles/productPage.css'
 
 const ProductDetails = () => {
-    const [QTY, setQTY] = useState(1)
     let params = useParams()
     const dispatch = useDispatch()
     const queryClient = useQueryClient()
@@ -19,7 +20,11 @@ const ProductDetails = () => {
         [`product-${params.productId}`],
         () => fetchProductById(params.productId)
     )
+
+    const [QTY, setQTY] = useState(1)
     const [imageURL, setImageURL] = useState(data?.imageURL1)
+    const [ingredientsClicked, setIngredientsClicked] = useState(false)
+    const [usageClicked, setUsageClicked] = useState(false)
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -55,9 +60,12 @@ const ProductDetails = () => {
                 <h2 className='name'>{data?.name}</h2>
                 <div className='price'>${data?.price}</div>
             </div>
-            <div className='product-images'>
+            <div className='product-main-container'>
                 <div className='main-image'>
-                    <img src={imageURL} alt='product' />
+                    <img
+                        src={imageURL ? imageURL : data?.imageURL1}
+                        alt='product'
+                    />
                 </div>
                 <div className='sub-images'>
                     <img
@@ -114,6 +122,52 @@ const ProductDetails = () => {
                                 {data?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
                             </div>
                         </button>
+                    </div>
+                </div>
+                <div className='ingredients'>
+                    <div className='ingredients-header'>
+                        <h2>Ingredients</h2>
+                        <button
+                            onClick={() =>
+                                setIngredientsClicked(!ingredientsClicked)
+                            }
+                        >
+                            {!ingredientsClicked ? (
+                                <ExpandMoreIcon fontSize='large' />
+                            ) : (
+                                <ExpandLessIcon fontSize='large' />
+                            )}
+                        </button>
+                    </div>
+                    <div
+                        className={
+                            !ingredientsClicked
+                                ? 'ingredients-expand hidden'
+                                : 'ingredients-expand'
+                        }
+                    >
+                        {data?.ingredients}
+                    </div>
+                </div>
+                <div className='usage'>
+                    <div className='usage-header'>
+                        <h2>How to Use</h2>
+                        <button onClick={() => setUsageClicked(!usageClicked)}>
+                            {!usageClicked ? (
+                                <ExpandMoreIcon fontSize='large' />
+                            ) : (
+                                <ExpandLessIcon fontSize='large' />
+                            )}
+                        </button>
+                    </div>
+                    <div
+                        className={
+                            !usageClicked
+                                ? 'usage-expand hidden'
+                                : 'usage-expand'
+                        }
+                    >
+                        {data?.usage}
                     </div>
                 </div>
             </div>
