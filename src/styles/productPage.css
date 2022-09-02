@@ -26,6 +26,12 @@
     border-bottom: 1px solid var(--borderColor);
 }
 
+.main-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-image img {
     width: 354px;
     height: 354px;
@@ -89,4 +95,24 @@
 .ingredients h2,
 .usage h2 {
     margin: 0;
+}
+
+@media screen and (min-width: 600px) {
+    .add-to-cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sub-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .sub-images img {
+        height: 80px;
+        width: 80px;
+    }
 }
