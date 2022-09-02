@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { auth } from '../../firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { isRequired, isSecure, isEmail } from '../utils/validations'
+import TextField from '@mui/material/TextField'
 
 const SignupForm = () => {
     const [email, setEmail] = useState('')
@@ -11,17 +12,23 @@ const SignupForm = () => {
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
     const [confirmError, setConfirmError] = useState('')
+    const [emailErrorMessage, setEmailErrorMessage] = useState(false)
+    const [passwordErrorMessage, setPasswordErrorMessage] = useState(false)
+    const [confirmErrorMessage, setConfirmErrorMessage] = useState(false)
 
     const navigate = useNavigate()
 
     const validateEmail = () => {
         let valid = false
         if (!isRequired(email)) {
-            setEmailError('Email is required.')
+            setEmailErrorMessage('Email is required.')
+            setEmailError(true)
         } else if (!isEmail(email)) {
-            setEmailError('Not a valid email')
+            setEmailErrorMessage('Not a valid email')
+            setEmailError(true)
         } else {
-            setEmailError('')
+            setEmailErrorMessage('')
+            setEmailError(false)
             valid = true
         }
         return valid
@@ -30,16 +37,22 @@ const SignupForm = () => {
     const validatePassword = () => {
         let valid = false
         if (!isRequired(password)) {
-            setPasswordError('Password is required')
+            setPasswordErrorMessage('Password is required')
+            setPasswordError(true)
         } else if (!isSecure(password)) {
-            setPasswordError(
+            setPasswordErrorMessage(
                 'Passwords must be between 8-50 characters, include 1 uppercase, 1 number, and 1 special character'
             )
+            setPasswordError(true)
         } else if (password !== confirm) {
-            setConfirmError('Passwords do not match')
+            setConfirmErrorMessage('Passwords do not match')
+            setConfirmError(true)
+            setPasswordError(true)
         } else {
             setConfirmError('')
-            setPasswordError('')
+            setPasswordErrorMessage('')
+            setPasswordError(false)
+            setConfirmError(false)
             valid = true
         }
         return valid
@@ -71,36 +84,42 @@ const SignupForm = () => {
 
     return (
         <form className='signup' onSubmit={register}>
-            <input
+            <TextField
+                error={emailError}
+                helperText={emailErrorMessage}
+                sx={{ width: { sm: 200, md: 300 } }}
+                margin='normal'
+                variant='standard'
                 type='email'
                 name='email'
                 placeholder='Email'
                 value={email}
                 onChange={e => setEmail(e.target.value)}
             />
-            <small className={emailError === '' ? 'hidden' : 'error'}>
-                {emailError}
-            </small>
-            <input
+            <TextField
+                sx={{ width: { sm: 200, md: 300 } }}
+                error={passwordError}
+                helperText={passwordErrorMessage}
+                margin='normal'
+                variant='standard'
                 type='password'
                 name='password'
                 placeholder='Create a password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
             />
-            <small className={passwordError === '' ? 'hidden' : 'error'}>
-                {passwordError}
-            </small>
-            <input
+            <TextField
+                error={confirmError}
+                helperText={confirmErrorMessage}
+                sx={{ width: { sm: 200, md: 300 } }}
+                margin='normal'
+                variant='standard'
                 type='password'
                 name='confirm-password'
                 placeholder='Confirm password'
                 value={confirm}
                 onChange={e => setConfirm(e.target.value)}
             />
-            <small className={confirmError === '' ? 'hidden' : 'error'}>
-                {confirmError}
-            </small>
             <button className='primary-btn' type='submit'>
                 Register
             </button>

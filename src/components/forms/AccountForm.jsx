@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { getAuth, updatePassword } from 'firebase/auth'
 import { isRequired, isEmail, isSecure } from '../utils/validations'
+import TextField from '@mui/material/TextField'
 import {
     updateDisplayName,
     updateUserEmail,
@@ -79,28 +80,48 @@ const AccountForm = () => {
 
     return (
         <form action=''>
-            <input
+            <TextField
+                sx={{
+                    width: { sm: 200, md: 300 },
+                }}
+                margin='normal'
+                variant='standard'
                 type='text'
                 name='name'
                 value={name}
                 placeholder='Set Display Name'
                 onChange={e => setName(e.target.value)}
             />
-            <input
+            <TextField
+                sx={{
+                    width: { sm: 200, md: 300 },
+                }}
+                margin='normal'
+                variant='standard'
                 type='text'
                 name='email'
                 value={email}
                 placeholder='Set New Email'
                 onChange={e => setEmail(e.target.value)}
             />
-            <input
+            <TextField
+                sx={{
+                    width: { sm: 200, md: 300 },
+                }}
+                margin='normal'
+                variant='standard'
                 type='password'
                 name='new'
                 value={password}
                 placeholder='New Password'
                 onChange={e => setPassword(e.target.value)}
             />
-            <input
+            <TextField
+                sx={{
+                    width: { sm: 200, md: 300 },
+                }}
+                margin='normal'
+                variant='standard'
                 type='password'
                 name='confirm'
                 value={confirm}

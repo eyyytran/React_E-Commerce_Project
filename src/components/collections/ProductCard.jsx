@@ -49,8 +49,9 @@ const ProductCard = ({ product }) => {
                 <button
                     disabled={product?.qty === 0 ? true : false}
                     style={product?.qty === 0 ? { placeContent: 'center' } : {}}
+                    onClick={handleClick}
                 >
-                    <div className='button-text' onClick={handleClick}>
+                    <div className='button-text'>
                         {product?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
                     </div>
                     <div

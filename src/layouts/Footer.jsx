@@ -15,9 +15,6 @@ const Footer = () => {
                     Andrea Tran
                 </a>
             </div>
-            <div className='disclaimer'>
-                This website was made {''} for educational purposes.
-            </div>
         </div>
     )
 }

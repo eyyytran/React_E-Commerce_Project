@@ -18,9 +18,6 @@ const UserNav = () => {
 
     return (
         <div className='global_user_nav'>
-            <a href='*'>
-                <SearchIcon />
-            </a>
             <a href='/account'>
                 <PermIdentityIcon />
             </a>

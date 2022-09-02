@@ -117,16 +117,9 @@ const ProductDetails = () => {
                             </FormControl>
                             <button
                                 disabled={data?.qty === 0 ? true : false}
-                                style={
-                                    data?.qty === 0
-                                        ? { placeContent: 'center' }
-                                        : {}
-                                }
+                                onClick={handleClick}
                             >
-                                <div
-                                    className='button-text'
-                                    onClick={handleClick}
-                                >
+                                <div className='button-text'>
                                     {data?.qty === 0
                                         ? 'SOLD OUT'
                                         : 'ADD TO BAG'}

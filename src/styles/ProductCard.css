@@ -3,6 +3,7 @@
     background: var(--gray);
     border-radius: 5px;
     margin: 2px;
+    cursor: pointer;
 }
 
 .product-card img {

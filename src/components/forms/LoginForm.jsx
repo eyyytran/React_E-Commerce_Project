@@ -6,6 +6,7 @@ import { auth } from '../../firebaseConfig'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { collection, query, where, getDocs } from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
+import TextField from '@mui/material/TextField'
 
 const LoginForm = () => {
     const [email, setEmail] = useState('')
@@ -46,16 +47,24 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={login}>
-            <input
+            <TextField
+                sx={{ width: { sm: 200, md: 300 } }}
+                margin='normal'
+                variant='standard'
                 type='text'
                 name='email'
                 placeholder='Email'
+                value={email}
                 onChange={e => setEmail(e.target.value)}
             />
-            <input
+            <TextField
+                sx={{ width: { sm: 200, md: 300 } }}
+                margin='normal'
+                variant='standard'
                 type='password'
                 name='password'
                 placeholder='Password'
+                value={password}
                 onChange={e => setPassword(e.target.value)}
             />
             <small className={error === '' ? 'hidden' : 'error'}>{error}</small>

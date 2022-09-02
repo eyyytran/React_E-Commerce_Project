@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import TextField from '@mui/material/TextField'
 import {
     EmailAuthProvider,
     getAuth,
@@ -8,7 +8,8 @@ import {
 
 const ReAuthForm = ({ setIsAuth }) => {
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+    const [error, setError] = useState(false)
 
     const auth = getAuth()
 
@@ -21,24 +22,29 @@ const ReAuthForm = ({ setIsAuth }) => {
             )
             await reauthenticateWithCredential(auth.currentUser, credential)
             setIsAuth(true)
-            setError('')
+            setErrorMessage('')
+            setError(false)
         } catch (error) {
             setIsAuth(false)
-            setError('unable to authenticate user')
+            setErrorMessage('unable to authenticate user')
+            setError(true)
         }
     }
 
     return (
         <>
             <form>
-                <input
+                <TextField
+                    error={error}
+                    id='standard-password-input'
+                    label='Password'
                     type='password'
-                    name='password'
-                    placeholder='Password'
+                    autoComplete='current-password'
+                    variant='standard'
+                    helperText={errorMessage}
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
-                <small>{error}</small>
                 <button className='primary-btn' onClick={handleReAuth}>
                     Confirm Password
                 </button>

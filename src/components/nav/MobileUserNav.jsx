@@ -19,12 +19,6 @@ const MobileUserNav = () => {
     return (
         <div className='mobile-user-nav'>
             <div className='mobile-user-btn'>
-                <a href='*'>
-                    <SearchIcon fontSize='large' />
-                </a>
-                <div>Search</div>
-            </div>
-            <div className='mobile-user-btn'>
                 <a href='/account'>
                     <PermIdentityIcon fontSize='large' />
                 </a>
