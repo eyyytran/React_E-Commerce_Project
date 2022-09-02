@@ -42,7 +42,6 @@ const ProductDetails = () => {
     }
 
     const qtyAvailable = Array.from(String(data?.qty), Number)
-    console.log(qtyAvailable)
 
     const handleChange = e => {
         setQTY(e.target.value)

@@ -2,7 +2,7 @@ export const isRequired = value => (value === '' ? false : true)
 
 export const isEmail = email => {
     const re = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
-    console.log(re.test(email))
+
     return re.test(email)
 }
 

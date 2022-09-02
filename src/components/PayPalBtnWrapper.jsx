@@ -45,13 +45,11 @@ const PayPalBtnWrapper = () => {
                         ],
                     })
                     .then(orderId => {
-                        console.log({ orderId })
                         return orderId
                     })
             }}
             onApprove={(data, actions) => {
                 return actions.order.capture().then(details => {
-                    console.log('on approve', details)
                     //invalidate cache
                     reduxDispatch(emptyCart())
                     updateQty()
