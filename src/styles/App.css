@@ -188,7 +188,7 @@ form small {
     right: 0;
     width: 320px;
     height: calc(100vh - var(--mobileBottomNavbarHeight));
-    padding: 1rem;
+    padding: 0.5rem;
     transform: translate(100%);
     transition: transform 0.3s ease-in-out;
     overflow-x: hidden;
@@ -264,7 +264,8 @@ form small {
 .login,
 .account-container,
 .admin,
-.signup {
+.signup,
+.checkout-container {
     height: 100%;
     width: 100%;
     padding: 1rem;
@@ -381,6 +382,19 @@ form small {
     .story-content {
         width: 400px;
         margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    .checkout-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .checkout-wrapper {
+        width: 760px;
     }
 }
 

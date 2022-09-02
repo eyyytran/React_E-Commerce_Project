@@ -10,22 +10,28 @@ const Checkout = () => {
     const cartContents = useSelector(state => state.cart.cart)
     return (
         <div className='checkout-container'>
-            <h1>Checkout</h1>
-            <div className='checkout-item-container'>
-                {cartContents?.length === 0 ? (
-                    <EmptyCart />
-                ) : (
-                    cartContents?.map(product => {
-                        return <CartItem product={product} key={product.id} />
-                    })
-                )}
+            <div className='checkout-wrapper'>
+                <h1>Checkout</h1>
+                <div className='checkout-item-container'>
+                    {cartContents?.length === 0 ? (
+                        <EmptyCart />
+                    ) : (
+                        cartContents?.map(product => {
+                            return (
+                                <CartItem product={product} key={product.id} />
+                            )
+                        })
+                    )}
+                </div>
+                <div className='checkout-calculation-container'>
+                    <CartCalculations />
+                </div>
+                <PayPalScriptProvider
+                    options={{ 'client-id': PAYPAL_CLIENT_ID }}
+                >
+                    <PayPalBtnWrapper />
+                </PayPalScriptProvider>
             </div>
-            <div className='checkout-calculation-container'>
-                <CartCalculations />
-            </div>
-            <PayPalScriptProvider options={{ 'client-id': PAYPAL_CLIENT_ID }}>
-                <PayPalBtnWrapper />
-            </PayPalScriptProvider>
         </div>
     )
 }

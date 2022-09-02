@@ -16,7 +16,7 @@
     --productCardImgHeight: 230px;
     --mobileBottomNavbarHeight: 75px;
     --cartItemHeight: 220px;
-    --cartItemWidth: 140px;
+    --cartItemWidth: 138px;
 }
 
 @media only screen and (min-width: 900px) {

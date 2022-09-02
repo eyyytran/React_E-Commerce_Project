@@ -135,7 +135,6 @@ const ProductDetails = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className='ingredients'>
                     <div className='ingredients-header'>
                         <h2>Ingredients</h2>
