@@ -1,11 +1,9 @@
-import { useRef } from 'react'
-import { useQueryClient, useQuery } from 'react-query'
+import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import ProductCard from '../components/collections/ProductCard'
 import { fetchCollection } from '../components/utils/dbRequests'
 
 const Home = () => {
-    const queryClient = useQueryClient()
     const { data } = useQuery([`collection-suncare`], () =>
         fetchCollection('suncare')
     )

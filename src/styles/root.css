@@ -13,7 +13,6 @@
     --primarybtnWidth: 180px;
     --primarybtnHeight: 50px;
     --productCardWidth: 175px;
-    --productCardHeight: 380px;
     --productCardImgHeight: 230px;
     --mobileBottomNavbarHeight: 75px;
     --cartItemHeight: 220px;
@@ -21,13 +20,13 @@
     --footerHeight: 80px;
     --footerBgColor: #ccccff;
     --promoBannerHeight: 30px;
+    --collectionBannerMarginTop: 15px;
 }
 
 @media only screen and (min-width: 900px) {
     :root {
         --navbarHeight: 55px;
         --productCardWidth: 250px;
-        --productCardHeight: 380px;
         --productCardImgHeight: 280px;
     }
 }

@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import AdminInventory from '../components/AdminInventory'
 import AddInventoryForm from '../components/forms/AddInventoryForm'
-import ControlPointIcon from '@mui/icons-material/ControlPoint'
-import CloseIcon from '@mui/icons-material/Close'
 
 const AdminSettings = () => {
     const [openForm, setOpenForm] = useState(false)
@@ -13,11 +11,7 @@ const AdminSettings = () => {
                     className='primary-btn'
                     onClick={() => setOpenForm(!openForm)}
                 >
-                    {!openForm ? (
-                        <ControlPointIcon fontSize='large' />
-                    ) : (
-                        <CloseIcon fontSize='large' />
-                    )}
+                    {!openForm ? 'Add Product' : 'Cancel'}
                 </button>
             </div>
             <AddInventoryForm openForm={openForm} setOpenForm={setOpenForm} />

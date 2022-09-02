@@ -128,7 +128,7 @@ input:focus {
 
 .hero-container img {
     height: auto;
-    width: 100vw;
+    min-width: 100vw;
     object-fit: cover;
     object-position: top;
 }
@@ -270,12 +270,19 @@ input:focus {
 }
 
 .login,
-.admin,
 .signup,
 .checkout-container {
     height: 100%;
     width: 100%;
     padding: 1rem;
+}
+
+.admin {
+    min-height: calc(
+        100vh - var(--mobileBottomNavbarHeight) - var(--navbarHeight) -
+            var(--footerHeight)
+    );
+    padding: 15px;
 }
 
 .checkout-item-container {
@@ -304,9 +311,10 @@ input:focus {
 }
 
 .collections-container {
-    height: 100%;
-    width: 100%;
-    padding-bottom: 3rem;
+    min-height: calc(
+        100vh - var(--promoBannerHeight) - var(--navbarHeight) -
+            var(--footerHeight) - var(--collectionBannerMarginTop)
+    );
 }
 
 .collection-container h1 {
@@ -315,9 +323,15 @@ input:focus {
     margin-bottom: 20px;
 }
 
+.collection-container .collection .MuiSkeleton-root {
+    height: 440px;
+    width: var(--productCardWidth);
+    margin: 5px;
+}
+
 .collection-header {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: var(--collectionBannerMarginTop);
+    margin-bottom: 15px;
     background-image: url('../assets/purplewater.jpeg');
     z-index: -90;
     display: flex;
@@ -346,11 +360,15 @@ input:focus {
 
 .about {
     text-align: center;
-    height: 100vh;
+    min-height: calc(
+        100vh - var(--promoBannerHeight) - var(--navbarHeight) -
+            var(--footerHeight)
+    );
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .about .content {
     width: 100vw;
 }
@@ -373,6 +391,7 @@ input:focus {
     justify-content: space-around;
     align-items: center;
     height: var(--footerHeight);
+    margin-bottom: var(--mobileBottomNavbarHeight);
 }
 
 .footer p {
@@ -403,6 +422,30 @@ input:focus {
     .story-content {
         width: 400px;
         margin-right: 0;
+    }
+
+    .admin {
+        min-height: calc(
+            100vh - var(--promoBannerHeight) - var(--navbarHeight) -
+                var(--footerHeight)
+        );
+        padding: 15px;
+    }
+
+    .collection-container {
+        padding-bottom: 15px;
+    }
+
+    .collection-container .collection .MuiSkeleton-root {
+        height: 490px;
+    }
+
+    .footer {
+        margin-bottom: 0;
+    }
+
+    .hero-container img {
+        height: calc(100vh - var(--promoBannerHeight) - var(--navbarHeight));
     }
 }
 
