@@ -60,70 +60,82 @@ const ProductDetails = () => {
                 <h2 className='name'>{data?.name}</h2>
                 <div className='price'>${data?.price}</div>
             </div>
+            <div className='top-wrapper'></div>
             <div className='product-main-container'>
-                <div className='main-image'>
-                    <img
-                        src={imageURL ? imageURL : data?.imageURL1}
-                        alt='product'
-                    />
-                </div>
-                <div className='sub-images'>
-                    <img
-                        src={data?.imageURL1}
-                        alt='product'
-                        onClick={e => setImageURL(data?.imageURL1)}
-                    />
-                    <img
-                        src={data?.imageURL2}
-                        alt='product'
-                        onClick={e => setImageURL(data?.imageURL2)}
-                    />
-                    <img
-                        src={data?.imageURL3}
-                        alt='product'
-                        onClick={e => setImageURL(data?.imageURL3)}
-                    />
-                </div>
-                <div className='product-details-container'>
-                    <div className='subtitle'>
-                        {data?.subtitle.toUpperCase()}
+                <div className='top-wrapper'>
+                    <div className='image-wrapper'>
+                        <div className='main-image'>
+                            <img
+                                src={imageURL ? imageURL : data?.imageURL1}
+                                alt='product'
+                            />
+                        </div>
+                        <div className='sub-images'>
+                            <img
+                                src={data?.imageURL1}
+                                alt='product'
+                                onClick={e => setImageURL(data?.imageURL1)}
+                            />
+                            <img
+                                src={data?.imageURL2}
+                                alt='product'
+                                onClick={e => setImageURL(data?.imageURL2)}
+                            />
+                            <img
+                                src={data?.imageURL3}
+                                alt='product'
+                                onClick={e => setImageURL(data?.imageURL3)}
+                            />
+                        </div>
                     </div>
-                    <div className='description'>{data?.description}</div>
-                    <div className='add-to-cart'>
-                        <FormControl sx={{ m: 1, minWidth: 80 }}>
-                            <InputLabel id='demo-simple-select-label'>
-                                QTY
-                            </InputLabel>
-                            <Select
-                                labelId='demo-simple-select-label'
-                                id='demo-simple-select'
-                                value={QTY}
-                                label='Age'
-                                onChange={handleChange}
+
+                    <div className='product-details-container'>
+                        <div className='subtitle'>
+                            {data?.subtitle.toUpperCase()}
+                        </div>
+                        <div className='description'>{data?.description}</div>
+                        <div className='add-to-cart'>
+                            <FormControl sx={{ m: 1, minWidth: 80 }}>
+                                <InputLabel id='demo-simple-select-label'>
+                                    QTY
+                                </InputLabel>
+                                <Select
+                                    labelId='demo-simple-select-label'
+                                    id='demo-simple-select'
+                                    value={QTY}
+                                    label='Age'
+                                    onChange={handleChange}
+                                >
+                                    {qtyAvailable.map(qty => {
+                                        return (
+                                            <MenuItem value={parseInt(qty)}>
+                                                {qty}
+                                            </MenuItem>
+                                        )
+                                    })}
+                                </Select>
+                            </FormControl>
+                            <button
+                                disabled={data?.qty === 0 ? true : false}
+                                style={
+                                    data?.qty === 0
+                                        ? { placeContent: 'center' }
+                                        : {}
+                                }
                             >
-                                {qtyAvailable.map(qty => {
-                                    return (
-                                        <MenuItem value={parseInt(qty)}>
-                                            {qty}
-                                        </MenuItem>
-                                    )
-                                })}
-                            </Select>
-                        </FormControl>
-                        <button
-                            disabled={data?.qty === 0 ? true : false}
-                            style={
-                                data?.qty === 0
-                                    ? { placeContent: 'center' }
-                                    : {}
-                            }
-                        >
-                            <div className='button-text' onClick={handleClick}>
-                                {data?.qty === 0 ? 'SOLD OUT' : 'ADD TO BAG'}
-                            </div>
-                        </button>
+                                <div
+                                    className='button-text'
+                                    onClick={handleClick}
+                                >
+                                    {data?.qty === 0
+                                        ? 'SOLD OUT'
+                                        : 'ADD TO BAG'}
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
                 <div className='ingredients'>
                     <div className='ingredients-header'>
                         <h2>Ingredients</h2>

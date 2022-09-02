@@ -116,3 +116,19 @@
         width: 80px;
     }
 }
+
+@media screen and (min-width: 900px) {
+    .top-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        max-width: 760px;
+    }
+    .product-details-container {
+        border: none;
+    }
+    .ingredients,
+    .usage {
+        max-width: 760px;
+    }
+}
