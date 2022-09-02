@@ -1,3 +1,5 @@
+Read about the creation of this app on [Medium](https://medium.com/@eyyytran/nurse-to-tech-in-16-weeks-week-12-9bced75a2bfb).
+
 ### Languages/ Technologies Utilized
 
 -   React

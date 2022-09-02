@@ -128,7 +128,7 @@ input:focus {
 
 .hero-container img {
     height: auto;
-    min-width: 100vw;
+    width: 100vw;
     object-fit: cover;
     object-position: top;
 }
@@ -444,14 +444,15 @@ input:focus {
         margin-bottom: 0;
     }
 
-    .hero-container img {
+    /* .hero-container img {
         height: calc(100vh - var(--promoBannerHeight) - var(--navbarHeight));
-    }
+    } */
 }
 
 @media only screen and (min-width: 760px) {
     .checkout-container {
         height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
