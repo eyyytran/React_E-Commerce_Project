@@ -18,11 +18,6 @@ const AdminInventory = () => {
 
     return (
         <div className='admin_inventory-container'>
-            <div className='admin-inventory-firstrow'>
-                <div>Product Name</div>
-                <div>Price</div>
-                <div>QTY</div>
-            </div>
             {data?.map(product => {
                 return <AdminInventoryItem product={product} key={product.id} />
             })}

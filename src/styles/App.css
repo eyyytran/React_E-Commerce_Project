@@ -117,7 +117,7 @@ form small {
 }
 
 .homepage {
-    height: 100%;
+    height: fit-content;
     width: 100%;
 }
 
@@ -129,6 +129,7 @@ form small {
 
 .featured-container {
     width: 100vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -218,6 +219,7 @@ form small {
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     border-top: 1px solid var(--borderColor);
     border-bottom: 1px solid var(--borderColor);
 }
@@ -269,6 +271,13 @@ form small {
     height: 100%;
     width: 100%;
     padding: 1rem;
+}
+
+.checkout-item-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
 }
 
 .admin-btn-container {
@@ -346,8 +355,27 @@ form small {
     object-fit: contain;
 }
 
+.about {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about .content {
+    width: 100vw;
+}
+
+.about img {
+    width: 100vw;
+    height: 300px;
+    object-fit: cover;
+}
+
 .footer {
+    width: 100vw;
     background-color: #ccccff;
+
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -367,6 +395,10 @@ form small {
     width: 30vw;
 }
 
+.account-container {
+    height: calc(100vh - var(--navbarHeight));
+}
+
 @media only screen and (min-width: 600px) {
     .collection-header {
         height: 80px;
@@ -383,6 +415,11 @@ form small {
         width: 400px;
         margin-right: 0;
     }
+
+    .reauth-container {
+        max-width: 600px;
+        margin: 1rem;
+    }
 }
 
 @media only screen and (min-width: 760px) {
@@ -394,6 +431,9 @@ form small {
     }
 
     .checkout-wrapper {
+        width: 760px;
+    }
+    .about .content {
         width: 760px;
     }
 }

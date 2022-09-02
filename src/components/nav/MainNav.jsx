@@ -21,7 +21,7 @@ const MainNav = () => {
             </li>
 
             <li className='main_nav_item'>
-                <a className='main_nav_link' href='*'>
+                <a className='main_nav_link' href='/about'>
                     OUR STORY
                 </a>
             </li>

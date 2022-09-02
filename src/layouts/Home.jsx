@@ -52,6 +52,19 @@ const Home = () => {
                         </p>
                     </div>
                 </div>
+                <div className='featured-story'>
+                    <div className='story-content'>
+                        <h1>Beautiful Skin for All</h1>
+                        <p>
+                            SM Beauty is dedicated to making quality skincare
+                            affordable and accesible to everyone.
+                        </p>
+                    </div>
+                    <img
+                        src={require('../assets/group-of-women.jpeg')}
+                        alt='pink items flatlay'
+                    />
+                </div>
             </div>
         </div>
     )

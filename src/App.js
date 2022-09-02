@@ -21,6 +21,7 @@ import ErrorPage from './layouts/ErrorPage'
 import Footer from './layouts/Footer'
 import ProductPage from './components/collections/ProductPage'
 import ProductDetails from './components/collections/ProductDetails'
+import About from './layouts/About'
 
 function App() {
     return (
@@ -39,7 +40,7 @@ function App() {
 
                 <Route path='login' element={<Login />} />
                 <Route path='signup' element={<Signup />} />
-                <Route path='concierge' element={<Concierge />} />
+                <Route path='about' element={<About />} />
                 <Route path='checkout' element={<Checkout />} />
                 <Route element={<PrivateRoutes />}>
                     <Route path='account' element={<Account />} />
