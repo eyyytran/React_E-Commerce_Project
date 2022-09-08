@@ -11,7 +11,8 @@ Read about the creation of this app on [Medium](https://medium.com/@eyyytran/nur
 
 ## Background
 
-This project is a skincare e-commerce website. It has two client flows: one for the admin and one for the customer.
+This project is a skincare e-commerce website. It has two client flows: one for the admin and one for the customer. Administrative users can manage the shop's inventory, which is stored in Firestore, through the website. Customers can manage their accounts and purchase merchandise. Checkout and credit card validation is handled via PayPal API. 
+
 
 ## Usage
 
