@@ -1,4 +1,5 @@
 Read about the creation of this app on [Medium](https://medium.com/@eyyytran/nurse-to-tech-in-16-weeks-week-12-9bced75a2bfb).
+A short video demonstration can be found on [Youtube](https://www.youtube.com/watch?v=cV_hz754prw).
 
 ### Languages/ Technologies Utilized
 
